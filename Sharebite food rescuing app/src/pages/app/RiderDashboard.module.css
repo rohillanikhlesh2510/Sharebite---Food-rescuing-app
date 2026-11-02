@@ -1,0 +1,151 @@
+/* ========================================================
+   RiderDashboard.module.css — Phase 4
+   ======================================================== */
+
+.page { padding: 20px 24px; max-width: 900px; margin: 0 auto; }
+
+.pageHeader { margin-bottom: 24px; }
+.pageTitle { font-size: 22px; font-weight: 700; color: #1a1a2e; margin: 0 0 4px 0; }
+.pageSubtitle { font-size: 14px; color: #6b7280; margin: 0; }
+
+.tabs { display: flex; gap: 6px; margin-bottom: 24px; border-bottom: 2px solid #f3f4f6; padding-bottom: 0; }
+.tab {
+  padding: 8px 18px; background: none; border: none; border-bottom: 2px solid transparent;
+  font-size: 14px; font-weight: 500; cursor: pointer; color: #6b7280;
+  margin-bottom: -2px; transition: color 0.2s, border-color 0.2s;
+}
+.tabActive { color: #ea580c; border-bottom-color: #ea580c; }
+
+.statusRow {
+  display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+  margin-bottom: 20px;
+}
+.onlineDot { width: 10px; height: 10px; border-radius: 50%; background: #10b981; flex-shrink: 0; }
+.offlineDot { width: 10px; height: 10px; border-radius: 50%; background: #9ca3af; flex-shrink: 0; }
+.statusText { font-size: 14px; font-weight: 500; color: #374151; flex: 1; }
+.toggleBtn {
+  padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; transition: background 0.2s;
+}
+.goOnline { background: #dcfce7; color: #15803d; }
+.goOffline { background: #fee2e2; color: #b91c1c; }
+
+.taskCard {
+  background: #fff; border: 1px solid #e5e7eb; border-radius: 14px;
+  padding: 18px; margin-bottom: 14px; transition: box-shadow 0.2s;
+}
+.taskCard:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.taskCardHeader { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+
+.taskTitle { font-size: 16px; font-weight: 600; color: #111827; margin: 0 0 4px 0; }
+.taskMeta { font-size: 13px; color: #6b7280; display: flex; flex-wrap: wrap; gap: 10px; }
+.taskMetaItem { display: flex; align-items: center; gap: 4px; }
+
+.statusBadge {
+  padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  white-space: nowrap; flex-shrink: 0;
+}
+.status_awaiting_rider { background: #fef3c7; color: #92400e; }
+.status_rider_assigned { background: #dbeafe; color: #1e40af; }
+.status_going_to_pickup { background: #e0e7ff; color: #4338ca; }
+.status_food_collected { background: #d1fae5; color: #065f46; }
+.status_in_transit { background: #cffafe; color: #0e7490; }
+.status_delivered { background: #f0fdf4; color: #16a34a; }
+.status_completed { background: #f3f4f6; color: #374151; }
+.status_incident { background: #fee2e2; color: #991b1b; }
+.status_cancelled { background: #f3f4f6; color: #6b7280; }
+.status_pending { background: #fef3c7; color: #92400e; }
+.status_confirmed { background: #dbeafe; color: #1e40af; }
+.status_distributed { background: #d1fae5; color: #065f46; }
+.status_in_progress { background: #e0f2fe; color: #0c4a6e; }
+.status_partial { background: #fef3c7; color: #92400e; }
+
+.routeRow {
+  display: flex; align-items: center; gap: 8px; padding: 10px 0;
+  border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; margin: 12px 0;
+}
+.locationPin { font-size: 13px; color: #374151; flex: 1; }
+.arrow { color: #9ca3af; font-size: 16px; }
+
+.actionsRow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.btn {
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; transition: background 0.15s, transform 0.1s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btnPrimary { background: #ea580c; color: #fff; }
+.btnPrimary:hover:not(:disabled) { background: #c2410c; }
+.btnSuccess { background: #10b981; color: #fff; }
+.btnSuccess:hover:not(:disabled) { background: #059669; }
+.btnWarning { background: #f59e0b; color: #fff; }
+.btnWarning:hover:not(:disabled) { background: #d97706; }
+.btnDanger { background: #ef4444; color: #fff; }
+.btnDanger:hover:not(:disabled) { background: #dc2626; }
+.btnOutline { background: #fff; color: #374151; border: 1px solid #d1d5db; }
+.btnOutline:hover:not(:disabled) { background: #f9fafb; }
+
+.codeBox {
+  background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px;
+  padding: 12px 16px; margin: 8px 0;
+  display: flex; align-items: center; gap: 12px;
+}
+.codeLabel { font-size: 12px; color: #6b7280; }
+.codeValue { font-size: 22px; font-weight: 800; color: #065f46; letter-spacing: 4px; font-family: monospace; }
+
+.inputRow { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.codeInput {
+  flex: 1; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px;
+  font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: monospace;
+}
+.codeInput:focus { outline: none; border-color: #ea580c; }
+
+.infoCard {
+  background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px;
+  padding: 14px 16px; margin-bottom: 14px;
+}
+.infoCard h4 { margin: 0 0 10px 0; font-size: 14px; font-weight: 600; color: #374151; }
+.infoRow { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+.infoLabel { color: #6b7280; }
+.infoValue { color: #111827; font-weight: 500; text-align: right; max-width: 60%; }
+
+.emptyState { text-align: center; padding: 48px 24px; }
+.emptyIcon { font-size: 40px; margin-bottom: 12px; }
+.emptyTitle { font-size: 16px; font-weight: 600; color: #374151; margin: 0 0 6px 0; }
+.emptyText { font-size: 14px; color: #6b7280; max-width: 280px; margin: 0 auto; }
+
+.modal {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000;
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.modalCard {
+  background: #fff; border-radius: 16px; padding: 24px;
+  width: 100%; max-width: 440px; position: relative;
+}
+.modalTitle { font-size: 18px; font-weight: 700; color: #111827; margin: 0 0 16px 0; }
+.modalLabel { font-size: 13px; color: #374151; font-weight: 500; margin-bottom: 4px; display: block; }
+.modalInput {
+  width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px;
+  font-size: 14px; box-sizing: border-box; margin-bottom: 12px;
+}
+.modalInput:focus { outline: none; border-color: #ea580c; }
+.modalActions { display: flex; gap: 8px; margin-top: 16px; }
+.modalClose {
+  position: absolute; top: 16px; right: 16px;
+  background: #f3f4f6; border: none; border-radius: 50%; width: 28px; height: 28px;
+  cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;
+}
+
+.incidentSelect {
+  width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px;
+  font-size: 14px; margin-bottom: 12px; box-sizing: border-box;
+}
+.incidentTextarea {
+  width: 100%; padding: 10px 12px; border: 1px solid #d1d5db; border-radius: 8px;
+  font-size: 14px; box-sizing: border-box; resize: vertical; min-height: 80px;
+}
+
+.errorMsg { background: #fee2e2; color: #b91c1c; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin: 8px 0; }
+.successMsg { background: #dcfce7; color: #15803d; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin: 8px 0; }

@@ -1,0 +1,799 @@
+/* ============================================================
+   SHAREBITE — EXACT DESKTOP 3-COLUMN ROLE AUTHENTICATION
+   Matching Reference Screenshot 100%
+   ============================================================ */
+
+.page {
+  min-height: 100vh;
+  background-color: #FAF7F2;
+  color: #1F2421;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 0 0 60px 0;
+}
+
+/* Background botanical leaves from corners */
+.leafTopLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 140px;
+  max-width: 18vw;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.leafTopRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 145px;
+  max-width: 18vw;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Header Section */
+.header {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 28px 20px 16px 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logoRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: transform 0.2s ease;
+}
+
+.logoRow:hover {
+  transform: scale(1.02);
+}
+
+.logoBadge {
+  width: 44px;
+  height: 44px;
+  background: #BD5927;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(189, 89, 39, 0.25);
+}
+
+.logoTextCol {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.logoTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #BD5927;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.logoTagline {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #8E583A;
+  letter-spacing: 0.2px;
+}
+
+/* Sub-header Banner with flanking rules matching screenshot */
+.bannerRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  max-width: 960px;
+  margin: 8px auto 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.bannerLine {
+  flex: 1;
+  height: 1px;
+  background: #DDD7CE;
+}
+
+.bannerText {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  color: #37463C;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.bannerDot {
+  margin: 0 10px;
+  color: #BD5927;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+/* Controls Bar (Mobile Role Tabs + Mode Toggle) */
+.controlsBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 16px auto 12px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 5;
+  flex-wrap: wrap;
+}
+
+.modeToggle {
+  display: inline-flex;
+  background: #ECE6DD;
+  padding: 4px;
+  border-radius: 999px;
+  gap: 4px;
+  border: 1px solid #DCD5CA;
+}
+
+.modeBtn {
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #5D675F;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.modeBtnActive {
+  background: #FFFFFF;
+  color: #1F2421;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.mobileRoleSelector {
+  display: none;
+}
+
+/* DESKTOP 3-COLUMN GRID MATCHING SCREENSHOT EXACTLY */
+.desktopGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1440px;
+  margin: 14px auto 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 5;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* Individual Role Card */
+.roleCard {
+  background: #FFFDFB;
+  border-radius: 24px;
+  border: 1px solid #EBE4D8;
+  box-shadow: 0 4px 20px rgba(45, 35, 25, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  height: 100%;
+}
+
+.roleCard:hover {
+  box-shadow: 0 8px 28px rgba(45, 35, 25, 0.07);
+}
+
+.cardInner {
+  padding: 24px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card Header Components */
+.pillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #EAF3EB;
+  color: #2B5738;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 12px;
+  border: 1px solid #D2E4D4;
+}
+
+.miniBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.miniBrandBadge {
+  width: 26px;
+  height: 26px;
+  background: #BD5927;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miniBrandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.miniBrandTitle {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #BD5927;
+  line-height: 1;
+}
+
+.miniBrandTag {
+  font-size: 0.65rem;
+  color: #8E583A;
+  font-weight: 500;
+}
+
+.cardHeadline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.62rem;
+  font-weight: 700;
+  color: #1C271F;
+  line-height: 1.22;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.3px;
+}
+
+.cardHeadlineAccent {
+  color: #BD5927;
+}
+
+.cardSubtext {
+  font-size: 0.81rem;
+  color: #58615A;
+  line-height: 1.42;
+  margin: 0 0 16px 0;
+  min-height: 46px;
+}
+
+/* Form inputs matching screenshot */
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 6px;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  background-color: #FAF9F6;
+  border: 1px solid #E4DFD6;
+  border-radius: 11px;
+  padding: 0 12px;
+  height: 42px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.inputWrap:focus-within {
+  background-color: #FFFFFF;
+  border-color: #BD5927;
+  box-shadow: 0 0 0 3px rgba(189, 89, 39, 0.12);
+}
+
+.inputIcon {
+  color: #8C958D;
+  margin-right: 9px;
+  flex-shrink: 0;
+}
+
+.inputField {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.84rem;
+  color: #1F2421;
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: #9AA29B;
+  font-size: 0.83rem;
+}
+
+.eyeToggle {
+  background: transparent;
+  border: none;
+  color: #8C958D;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.15s ease;
+}
+
+.eyeToggle:hover {
+  color: #1F2421;
+}
+
+/* Google OAuth Button */
+.googleBtn {
+  width: 100%;
+  height: 41px;
+  background-color: #FFFFFF;
+  border: 1px solid #DDD7CD;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2F3530;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.googleBtn:hover {
+  background-color: #F8F6F2;
+  border-color: #CFC7BA;
+}
+
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Primary Submit Button */
+.submitBtn {
+  width: 100%;
+  height: 43px;
+  background-color: #BD5927;
+  border: none;
+  border-radius: 11px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.91rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(189, 89, 39, 0.24);
+  transition: all 0.2s ease;
+  margin-top: 2px;
+}
+
+.submitBtn:hover {
+  background-color: #A3481B;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(189, 89, 39, 0.3);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Footer / Switch link */
+.cardFooter {
+  text-align: center;
+  font-size: 0.79rem;
+  color: #636D65;
+  margin-top: 10px;
+}
+
+.cardFooterLink {
+  color: #BD5927;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: none;
+}
+
+.cardFooterLink:hover {
+  text-decoration: underline;
+}
+
+.forgotLink {
+  display: block;
+  font-size: 0.77rem;
+  color: #8E583A;
+  text-align: right;
+  margin-top: -3px;
+  margin-bottom: 3px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.forgotLink:hover {
+  color: #BD5927;
+  text-decoration: underline;
+}
+
+/* Notice under button */
+.noticeRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.73rem;
+  font-weight: 500;
+  color: #2F613B;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.noticeIcon {
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+/* Bottom Illustration flush with card */
+.cardIllustrationWrap {
+  margin-top: auto;
+  padding-top: 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.cardIllustration {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Feedback alert */
+.cardAlert {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.cardAlertError {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+  color: #B91C1C;
+}
+
+.cardAlertSuccess {
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  color: #15803D;
+}
+
+.mismatchBtn {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 3px 8px;
+  background: #BD5927;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+/* ============================================================
+   ROLE SELECTION HUB STYLES (RoleSelectPage)
+   ============================================================ */
+
+.selectionHero {
+  text-align: center;
+  max-width: 860px;
+  margin: 16px auto 26px auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 5;
+}
+
+.selectionTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.15rem;
+  font-weight: 700;
+  color: #1C271F;
+  letter-spacing: -0.4px;
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+.selectionSubtitle {
+  font-size: 1.02rem;
+  color: #58615A;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* 3-Column Selection Grid */
+.threeColGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  align-items: stretch;
+}
+
+.cardPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background-color: #EAF3EB;
+  color: #2B5738;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  width: fit-content;
+  margin-bottom: 12px;
+  border: 1px solid #D2E4D4;
+}
+
+.cardLogoMini {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cardLogoMiniBadge {
+  width: 26px;
+  height: 26px;
+  background: #BD5927;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardLogoMiniText {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardLogoMiniTitle {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #BD5927;
+  line-height: 1;
+}
+
+.cardLogoMiniTag {
+  font-size: 0.65rem;
+  color: #8E583A;
+  font-weight: 500;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.48rem;
+  font-weight: 700;
+  color: #1C271F;
+  line-height: 1.25;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.2px;
+}
+
+.cardDescription {
+  font-size: 0.84rem;
+  color: #58615A;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
+  min-height: 48px;
+}
+
+.selectionCardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.roleFeatureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roleFeatureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: #313C34;
+  line-height: 1.4;
+}
+
+.roleFeatureIcon {
+  color: #16A34A;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.primaryBtn {
+  width: 100%;
+  height: 45px;
+  background-color: #BD5927;
+  border: none;
+  border-radius: 11px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(189, 89, 39, 0.24);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.primaryBtn:hover {
+  background-color: #A3481B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(189, 89, 39, 0.32);
+}
+
+.verificationNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #2F613B;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.footerLinks {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #636D65;
+  margin-top: 12px;
+}
+
+.footerLink {
+  color: #BD5927;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles for Tablet & Mobile */
+@media (max-width: 1080px) {
+  .threeColGrid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 16px auto 0 auto;
+  }
+
+  .desktopGrid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 16px auto 0 auto;
+  }
+
+  .mobileRoleSelector {
+    display: inline-flex;
+    background: #E8E2D8;
+    padding: 4px;
+    border-radius: 999px;
+    gap: 4px;
+    border: 1px solid #D8D0C3;
+  }
+
+  .mobileRoleBtn {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #5F6861;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .mobileRoleBtnActive {
+    background: #FFFFFF;
+    color: #1F2421;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+
+  .cardSubtext {
+    min-height: auto;
+  }
+
+  .bannerRow {
+    padding: 0 16px;
+  }
+
+  .bannerText {
+    font-size: 0.92rem;
+  }
+
+  .leafTopLeft, .leafTopRight {
+    width: 90px;
+  }
+
+  .selectionTitle {
+    font-size: 1.75rem;
+  }
+}

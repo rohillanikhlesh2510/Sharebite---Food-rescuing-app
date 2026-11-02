@@ -1,0 +1,226 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 32px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header Banner */
+.headerBanner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.findFoodBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: #f1f5f0;
+  color: #3b6d44;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.serifTerracotta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  color: #c17b3f;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* Filter Bar */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 6px 0;
+}
+
+.filterPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+}
+
+.filterPill:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.filterPillActive {
+  background: #fef8f4;
+  border-color: var(--color-primary);
+  color: var(--color-primary-700);
+  font-weight: 600;
+}
+
+.filterSelect {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.15s ease;
+}
+
+.resetBtn:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+/* Split View Layout */
+.splitLayout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  min-height: 640px;
+  align-items: stretch;
+}
+
+.mapCol {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 120px);
+  min-height: 540px;
+}
+
+.listCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.listHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+
+.listTitleWrap h2 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 4px 0;
+}
+
+.listCount {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+.sortSelectWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  position: relative;
+}
+
+.sortSelect {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  max-height: calc(100vh - 180px);
+  padding-right: 6px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .splitLayout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .mapCol {
+    position: relative;
+    top: 0;
+    height: 400px;
+    min-height: 380px;
+  }
+
+  .cardsList {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
