@@ -254,6 +254,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | Document | Focus & Highlights |
 |:---|:---|
 | 🔄 **[WORKFLOW_DIAGRAM.md](./WORKFLOW_DIAGRAM.md)** | Visual Mermaid workflows, swimlane lifecycles, and PIN verification sequence diagrams |
+| ⚡ **[STRESS_HANDLING_REPORT.md](./STRESS_HANDLING_REPORT.md)** | Concurrency benchmarks, row-level locking, connection pooling & offline rider resilience |
 | 🏛️ **[ARCHITECTURE.md](./Sharebite%20food%20rescuing%20app/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
 | 🗄️ **[BACKEND_REPORT.md](./Sharebite%20food%20rescuing%20app/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
 | ⚛️ **[FRONTEND_REPORT.md](./Sharebite%20food%20rescuing%20app/FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
