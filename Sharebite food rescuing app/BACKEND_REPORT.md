@@ -948,3 +948,4 @@ MAX_IMAGE_SIZE_MB=5                # Optional, default 5
 
 *Backend Report — Sharebite v1.0 | November 2026*
 *Schema: PostgreSQL 15 | Supabase Platform | Deno Edge Functions*
+

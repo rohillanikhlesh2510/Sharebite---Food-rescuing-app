@@ -495,3 +495,4 @@ People Fed          = X (at least)
 *Real World Impact Report — Sharebite v1.0 | November 2026*
 
 </div>
+

@@ -695,3 +695,4 @@ This ensures the app never breaks even if a migration hasn't been applied yet.
 ---
 
 *Feature Report — Sharebite v1.0 | November 2026*
+

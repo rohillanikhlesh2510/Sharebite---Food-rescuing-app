@@ -923,3 +923,4 @@ User clicks "Sign in with Google"
 
 *Frontend Report — Sharebite v1.0 | November 2026*
 *React 19 · TypeScript 6 · Vite 8 · React Router v7 · TanStack Query v5*
+
