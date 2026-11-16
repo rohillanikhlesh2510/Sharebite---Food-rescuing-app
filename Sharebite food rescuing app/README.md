@@ -265,6 +265,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 🌟 **[FEATURES.md](./FEATURES.md)** | Comprehensive module-by-module breakdown of all 25+ implemented user features |
 | 🌍 **[IMPACT_REPORT.md](./IMPACT_REPORT.md)** | Environmental formulas (CO₂e, virtual water), hunger data & UN SDG mappings |
 | 📁 **[FOLDER_STRUCTURE.md](./FOLDER_STRUCTURE.md)** | Granular directory map explaining the responsibility of every file |
+| 🗺️ **[ROADMAP.md](./ROADMAP.md)** | Strategic vision (2026–2028), WhatsApp Bot, IoT cold-chain & APMC Mandi rescue |
 
 ---
 
