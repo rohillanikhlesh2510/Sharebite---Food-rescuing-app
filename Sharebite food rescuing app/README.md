@@ -259,6 +259,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 🛡️ **[SECURITY.md](./SECURITY.md)** | DPDP Act 2023 compliance, RLS penetration threat matrix & FSSAI safety norms |
 | 🏛️ **[ARCHITECTURE.md](./ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
 | 🗄️ **[BACKEND_REPORT.md](./BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
+| 📡 **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)** | Complete PostgREST endpoints, Stored Procedure RPC schemas & WebSocket events |
 | ⚛️ **[FRONTEND_REPORT.md](./FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
 | 🎨 **[UIUX_DESIGN_REPORT.md](./UIUX_DESIGN_REPORT.md)** | Visual identity, design tokens, WCAG 2.1 accessibility & Indian hospitality UX |
 | 🌟 **[FEATURES.md](./FEATURES.md)** | Comprehensive module-by-module breakdown of all 25+ implemented user features |
