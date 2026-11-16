@@ -254,6 +254,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | Document | Focus & Highlights |
 |:---|:---|
 | 🔄 **[WORKFLOW_DIAGRAM.md](./WORKFLOW_DIAGRAM.md)** | Visual Mermaid workflows, swimlane lifecycles, and PIN verification sequence diagrams |
+| 📊 **[DATABASE_SCHEMA_DIAGRAM.md](./DATABASE_SCHEMA_DIAGRAM.md)** | Complete Mermaid ER diagram, 19 tables, foreign key tree & cardinality mappings |
 | ⚡ **[STRESS_HANDLING_REPORT.md](./STRESS_HANDLING_REPORT.md)** | Concurrency benchmarks, row-level locking, connection pooling & offline rider resilience |
 | 🏛️ **[ARCHITECTURE.md](./Sharebite%20food%20rescuing%20app/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
 | 🗄️ **[BACKEND_REPORT.md](./Sharebite%20food%20rescuing%20app/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
