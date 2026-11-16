@@ -259,6 +259,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 🏛️ **[ARCHITECTURE.md](./Sharebite%20food%20rescuing%20app/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
 | 🗄️ **[BACKEND_REPORT.md](./Sharebite%20food%20rescuing%20app/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
 | ⚛️ **[FRONTEND_REPORT.md](./Sharebite%20food%20rescuing%20app/FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
+| 🎨 **[UIUX_DESIGN_REPORT.md](./UIUX_DESIGN_REPORT.md)** | Visual identity, design tokens, WCAG 2.1 accessibility & Indian hospitality UX |
 | 🌟 **[FEATURES.md](./Sharebite%20food%20rescuing%20app/FEATURES.md)** | Comprehensive module-by-module breakdown of all 25+ implemented user features |
 | 🌍 **[IMPACT_REPORT.md](./Sharebite%20food%20rescuing%20app/IMPACT_REPORT.md)** | Environmental formulas (CO₂e, virtual water), hunger data & UN SDG mappings |
 | 📁 **[FOLDER_STRUCTURE.md](./Sharebite%20food%20rescuing%20app/FOLDER_STRUCTURE.md)** | Granular directory map explaining the responsibility of every file |
