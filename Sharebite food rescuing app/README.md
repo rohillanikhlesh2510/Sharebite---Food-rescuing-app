@@ -257,6 +257,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 📊 **[DATABASE_SCHEMA_DIAGRAM.md](./DATABASE_SCHEMA_DIAGRAM.md)** | Complete Mermaid ER diagram, 19 tables, foreign key tree & cardinality mappings |
 | ⚡ **[STRESS_HANDLING_REPORT.md](./STRESS_HANDLING_REPORT.md)** | Concurrency benchmarks, row-level locking, connection pooling & offline rider resilience |
 | 🧪 **[TESTING_QA_REPORT.md](./TESTING_QA_REPORT.md)** | Automated test execution matrix (45+ cases), concurrency mutex simulation & Puppeteer QA |
+| 🚀 **[DEPLOYMENT_DEVOPS_GUIDE.md](./DEPLOYMENT_DEVOPS_GUIDE.md)** | Vercel Edge deployment, Supabase CLI migrations, Deno Edge AI deploy & zero-downtime |
 | 🛡️ **[SECURITY.md](./SECURITY.md)** | DPDP Act 2023 compliance, RLS penetration threat matrix & FSSAI safety norms |
 | 🏛️ **[ARCHITECTURE.md](./ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
 | 🗄️ **[BACKEND_REPORT.md](./BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
