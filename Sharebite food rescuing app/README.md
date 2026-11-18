@@ -269,6 +269,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 📁 **[FOLDER_STRUCTURE.md](./FOLDER_STRUCTURE.md)** | Granular directory map explaining the responsibility of every file |
 | 🗺️ **[ROADMAP.md](./ROADMAP.md)** | Strategic vision (2026–2028), WhatsApp Bot, IoT cold-chain & APMC Mandi rescue |
 | 💼 **[BUSINESS_MODEL.md](./BUSINESS_MODEL.md)** | B2B SaaS monetization, unit economics, TAM/SAM/SOM & 3-year P&L forecast |
+| 📖 **[USER_MANUAL.md](./USER_MANUAL.md)** | Standard Operating Procedures (SOP), role-based walkthroughs (Donor/Rider/NGO/Admin) & emergency protocols |
 
 ---
 
