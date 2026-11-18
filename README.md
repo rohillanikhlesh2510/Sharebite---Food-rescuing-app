@@ -253,23 +253,23 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 
 | Document | Focus & Highlights |
 |:---|:---|
-| 🔄 **[WORKFLOW_DIAGRAM.md](./WORKFLOW_DIAGRAM.md)** | Visual Mermaid workflows, swimlane lifecycles, and PIN verification sequence diagrams |
-| 📊 **[DATABASE_SCHEMA_DIAGRAM.md](./DATABASE_SCHEMA_DIAGRAM.md)** | Complete Mermaid ER diagram, 19 tables, foreign key tree & cardinality mappings |
-| ⚡ **[STRESS_HANDLING_REPORT.md](./STRESS_HANDLING_REPORT.md)** | Concurrency benchmarks, row-level locking, connection pooling & offline rider resilience |
-| 🧪 **[TESTING_QA_REPORT.md](./TESTING_QA_REPORT.md)** | Automated test execution matrix (45+ cases), concurrency mutex simulation & Puppeteer QA |
-| 🚀 **[DEPLOYMENT_DEVOPS_GUIDE.md](./DEPLOYMENT_DEVOPS_GUIDE.md)** | Vercel Edge deployment, Supabase CLI migrations, Deno Edge AI deploy & zero-downtime |
-| 🛡️ **[SECURITY.md](./SECURITY.md)** | DPDP Act 2023 compliance, RLS penetration threat matrix & FSSAI safety norms |
-| 🏛️ **[ARCHITECTURE.md](./Sharebite%20food%20rescuing%20app/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
-| 🗄️ **[BACKEND_REPORT.md](./Sharebite%20food%20rescuing%20app/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
-| 📡 **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)** | Complete PostgREST endpoints, Stored Procedure RPC schemas & WebSocket events |
-| ⚛️ **[FRONTEND_REPORT.md](./Sharebite%20food%20rescuing%20app/FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
-| 🎨 **[UIUX_DESIGN_REPORT.md](./UIUX_DESIGN_REPORT.md)** | Visual identity, design tokens, WCAG 2.1 accessibility & Indian hospitality UX |
-| 🌟 **[FEATURES.md](./Sharebite%20food%20rescuing%20app/FEATURES.md)** | Comprehensive module-by-module breakdown of all 25+ implemented user features |
-| 🌍 **[IMPACT_REPORT.md](./Sharebite%20food%20rescuing%20app/IMPACT_REPORT.md)** | Environmental formulas (CO₂e, virtual water), hunger data & UN SDG mappings |
-| 📁 **[FOLDER_STRUCTURE.md](./Sharebite%20food%20rescuing%20app/FOLDER_STRUCTURE.md)** | Granular directory map explaining the responsibility of every file |
-| 🗺️ **[ROADMAP.md](./ROADMAP.md)** | Strategic vision (2026–2028), WhatsApp Bot, IoT cold-chain & APMC Mandi rescue |
-| 💼 **[BUSINESS_MODEL.md](./BUSINESS_MODEL.md)** | B2B SaaS monetization, unit economics, TAM/SAM/SOM & 3-year P&L forecast |
-| 📖 **[USER_MANUAL.md](./USER_MANUAL.md)** | Standard Operating Procedures (SOP), role-based walkthroughs (Donor/Rider/NGO/Admin) & emergency protocols |
+| 🔄 **[WORKFLOW_DIAGRAM.md](./docs/WORKFLOW_DIAGRAM.md)** | Visual Mermaid workflows, swimlane lifecycles, and PIN verification sequence diagrams |
+| 📊 **[DATABASE_SCHEMA_DIAGRAM.md](./docs/DATABASE_SCHEMA_DIAGRAM.md)** | Complete Mermaid ER diagram, 19 tables, foreign key tree & cardinality mappings |
+| ⚡ **[STRESS_HANDLING_REPORT.md](./docs/STRESS_HANDLING_REPORT.md)** | Concurrency benchmarks, row-level locking, connection pooling & offline rider resilience |
+| 🧪 **[TESTING_QA_REPORT.md](./docs/TESTING_QA_REPORT.md)** | Automated test execution matrix (45+ cases), concurrency mutex simulation & Puppeteer QA |
+| 🚀 **[DEPLOYMENT_DEVOPS_GUIDE.md](./docs/DEPLOYMENT_DEVOPS_GUIDE.md)** | Vercel Edge deployment, Supabase CLI migrations, Deno Edge AI deploy & zero-downtime |
+| 🛡️ **[SECURITY.md](./docs/SECURITY.md)** | DPDP Act 2023 compliance, RLS penetration threat matrix & FSSAI safety norms |
+| 🏛️ **[ARCHITECTURE.md](./docs/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
+| 🗄️ **[BACKEND_REPORT.md](./docs/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
+| 📡 **[API_DOCUMENTATION.md](./docs/API_DOCUMENTATION.md)** | Complete PostgREST endpoints, Stored Procedure RPC schemas & WebSocket events |
+| ⚛️ **[FRONTEND_REPORT.md](./docs/FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
+| 🎨 **[UIUX_DESIGN_REPORT.md](./docs/UIUX_DESIGN_REPORT.md)** | Visual identity, design tokens, WCAG 2.1 accessibility & Indian hospitality UX |
+| 🌟 **[FEATURES.md](./docs/FEATURES.md)** | Comprehensive module-by-module breakdown of all 25+ implemented user features |
+| 🌍 **[IMPACT_REPORT.md](./docs/IMPACT_REPORT.md)** | Environmental formulas (CO₂e, virtual water), hunger data & UN SDG mappings |
+| 📁 **[FOLDER_STRUCTURE.md](./docs/FOLDER_STRUCTURE.md)** | Granular directory map explaining the responsibility of every file |
+| 🗺️ **[ROADMAP.md](./docs/ROADMAP.md)** | Strategic vision (2026–2028), WhatsApp Bot, IoT cold-chain & APMC Mandi rescue |
+| 💼 **[BUSINESS_MODEL.md](./docs/BUSINESS_MODEL.md)** | B2B SaaS monetization, unit economics, TAM/SAM/SOM & 3-year P&L forecast |
+| 📖 **[USER_MANUAL.md](./docs/USER_MANUAL.md)** | Standard Operating Procedures (SOP), role-based walkthroughs (Donor/Rider/NGO/Admin) & emergency protocols |
 
 ---
 
