@@ -1,371 +1,390 @@
 # 📖 Sharebite — Complete User & Operational Manual (SOP)
 
-> End-to-end Standard Operating Procedures (SOP), role-specific walkthroughs, safety checklists, and troubleshooting workflows for Donors, Volunteer Riders, NGOs/Shelters, and System Administrators.
+> **Official Standard Operating Procedures (SOP)**, role-specific UI walkthroughs, food hygiene inspection protocols, 6-digit verification PIN handshakes, and emergency response workflows for Donors, Volunteer Couriers, NGOs/Shelters, and Platform Administrators.
 
 ---
 
 ## 📋 Table of Contents
 
-1. [Introduction & Platform Overview](#-1-introduction--platform-overview)
-2. [Donor Operator Manual (Hotels, Restaurants & Caterers)](#-2-donor-operator-manual-hotels-restaurants--caterers)
-   - 2.1 [Account Onboarding & Kitchen Profile](#21-account-onboarding--kitchen-profile)
-   - 2.2 [Step-by-Step Food Listing Guide](#22-step-by-step-food-listing-guide)
-   - 2.3 [Dietary Badging & Allergen Declarations](#23-dietary-badging--allergen-declarations)
-   - 2.4 [Packaging & Temperature Protocol](#24-packaging--temperature-protocol)
-   - 2.5 [Handoff & PIN Verification Protocol](#25-handoff--pin-verification-protocol)
-   - 2.6 [Downloading Tax Exemption (80G) & ESG Certificates](#26-downloading-tax-exemption-80g--esg-certificates)
-3. [Volunteer Rider Manual (Food Rescue Couriers)](#-3-volunteer-rider-manual-food-rescue-couriers)
-   - 3.1 [Rider Onboarding & Vehicle Profile](#31-rider-onboarding--vehicle-profile)
-   - 3.2 [Browsing & Claiming Rescue Runs](#32-browsing--claiming-rescue-runs)
-   - 3.3 [Pickup Verification & Hygiene Checklist](#33-pickup-verification--hygiene-checklist)
-   - 3.4 [Transit Safety & Cold-Chain Preservation](#34-transit-safety--cold-chain-preservation)
-   - 3.5 [Shelter Handover & 6-Digit PIN Exchange](#35-shelter-handover--6-digit-pin-exchange)
+1. [Executive Overview & Platform Lifecycle](#-1-executive-overview--platform-lifecycle)
+2. [Donor Operator Manual (Hotels, Banquets & Caterers)](#-2-donor-operator-manual-hotels-banquets--caterers)
+   - 2.1 [Onboarding & Kitchen Verification](#21-onboarding--kitchen-verification)
+   - 2.2 [Step-by-Step Food Listing Walkthrough (`CreateDonationPage`)](#22-step-by-step-food-listing-walkthrough-createdonationpage)
+   - 2.3 [Dietary Badging & Mandatory Allergen Declarations](#23-dietary-badging--mandatory-allergen-declarations)
+   - 2.4 [FSSAI Packaging, Sealing & Temperature Protocols](#24-fssai-packaging-sealing--temperature-protocols)
+   - 2.5 [Courier Handoff Verification](#25-courier-handoff-verification)
+   - 2.6 [Downloading 80G Tax Exemption & ESG Impact Audits](#26-downloading-80g-tax-exemption--esg-impact-audits)
+3. [Volunteer Rider Manual (Rescue Couriers)](#-3-volunteer-rider-manual-rescue-couriers)
+   - 3.1 [Courier Onboarding & Vehicle Kit Declaration](#31-courier-onboarding--vehicle-kit-declaration)
+   - 3.2 [Mission Radar & Claiming Rescue Runs (`RiderDashboardPage`)](#32-mission-radar--claiming-rescue-runs-riderdashboardpage)
+   - 3.3 [Kitchen Pickup & Physical Integrity Checklist](#33-kitchen-pickup--physical-integrity-checklist)
+   - 3.4 [Transit Safety & Thermal Chain Preservation](#34-transit-safety--thermal-chain-preservation)
+   - 3.5 [6-Digit Dynamic PIN Handshake at Shelter Gate](#35-6-digit-dynamic-pin-handshake-at-shelter-gate)
    - 3.6 [Offline Mode & Network Drop Procedures](#36-offline-mode--network-drop-procedures)
 4. [NGO & Shelter Manual (Community Recipients)](#-4-ngo--shelter-manual-community-recipients)
-   - 4.1 [Shelter Verification & Beneficiary Capacity](#41-shelter-verification--beneficiary-capacity)
-   - 4.2 [Setting Radius Alerts & Auto-Claim Rules](#42-setting-radius-alerts--auto-claim-rules)
-   - 4.3 [Organoleptic Food Inspection (Smell / Sight / Heat Check)](#43-organoleptic-food-inspection-smell--sight--heat-check)
-   - 4.4 [Handover PIN Confirmation](#44-handover-pin-confirmation)
-   - 4.5 [Distribution Logging & Impact Auditing](#45-distribution-logging--impact-auditing)
-5. [Platform Administrator Manual](#-5-platform-administrator-manual)
-   - 5.1 [Live Mission Command Center](#51-live-mission-command-center)
-   - 5.2 [AI Image Moderation & Flagged Content Resolution](#52-ai-image-moderation--flagged-content-resolution)
-   - 5.3 [Dispute Resolution & Account Strikes](#53-dispute-resolution--account-strikes)
-   - 5.4 [City-Wide ESG & BRSR Report Generation](#54-city-wide-esg--brsr-report-generation)
-6. [Emergency & Incident Protocols (SOP-911)](#-6-emergency--incident-protocols-sop-911)
+   - 4.1 [Shelter Verification & Beneficiary Quota](#41-shelter-verification--beneficiary-quota)
+   - 4.2 [Setting Proximity Alerts & Claiming Food (`NGOClaimsDashboard`)](#42-setting-proximity-alerts--claiming-food-ngoclaimsdashboard)
+   - 4.3 [Mandatory Organoleptic Food Inspection (Smell / Sight / Heat)](#43-mandatory-organoleptic-food-inspection-smell--sight--heat)
+   - 4.4 [Revealing Handshake PIN & Handover Confirmation](#44-revealing-handshake-pin--handover-confirmation)
+   - 4.5 [Distribution Logging & Transparency Score](#45-distribution-logging--transparency-score)
+5. [Platform Administrator Manual (`AdminPage`)](#-5-platform-administrator-manual-adminpage)
+   - 5.1 [Mission Command Center & Live Operations](#51-mission-command-center--live-operations)
+   - 5.2 [AI Vision Moderation Queue Resolution](#52-ai-vision-moderation-queue-resolution)
+   - 5.3 [Dispute Arbitration & 3-Strike Safety Policy](#53-dispute-arbitration--3-strike-safety-policy)
+   - 5.4 [City-Wide ESG & BRSR Carbon Report Export](#54-city-wide-esg--brsr-carbon-report-export)
+6. [Emergency Protocols & Incident Response (SOP-911)](#-6-emergency-protocols--incident-response-sop-911)
 7. [Progressive Web App (PWA) Mobile Setup Guide](#-7-progressive-web-app-pwa-mobile-setup-guide)
 8. [Frequently Asked Questions (FAQ) by Role](#-8-frequently-asked-questions-faq-by-role)
 
 ---
 
-## 🌟 1. Introduction & Platform Overview
+## 🌟 1. Executive Overview & Platform Lifecycle
 
-Sharebite is a mission-critical food rescue network connecting commercial surplus food generators (hotels, banquets, restaurants, cloud kitchens) with verified grassroots shelters, orphanages, and community kitchens via volunteer couriers.
+Sharebite coordinates time-sensitive food rescue across Indian urban clusters, connecting commercial surplus food generators with verified orphanages, shelters, and community kitchens.
 
-### The Four Pillars of Sharebite Operations
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                           SHAREBITE CORE LIFECYCLE                          │
-└──────┬──────────────────────┬──────────────────────┬────────────────────────┘
-       │                      │                      │
-       ▼                      ▼                      ▼
-┌──────────────┐       ┌──────────────┐       ┌──────────────┐
-│  1. DONOR    │       │   2. RIDER   │       │   3. NGO     │
-│  Lists food  │──────▶│ Transits run │──────▶│ Verifies &   │
-│  within 2 hrs│       │ safe & quick │       │ consumes via │
-│  of cooking  │       │ in insul bag │       │ 6-digit PIN  │
-└──────────────┘       └──────────────┘       └──────────────┘
-       ▲                      ▲                      ▲
-       └──────────────────────┼──────────────────────┘
-                              │
-                       ┌──────────────┐
-                       │   4. ADMIN   │
-                       │ AI Moderates │
-                       │ Audits & CSR │
-                       └──────────────┘
+```mermaid
+flowchart LR
+    A["🏨 1. DONOR\nLists surplus batch\nwithin 2 hrs of cooking"] --> B["⚡ SHAREBITE PLATFORM\nGeospatial matching\n& AI image moderation"]
+    B --> C["🏢 2. NGO SHELTER\nReviews dietary badges\n& claims servings"]
+    C --> D["🛵 3. VOLUNTEER RIDER\nTransits in insulated kit\nvia turn-by-turn GIS"]
+    D --> E["🍲 4. RECIPIENT GATE\nOrganoleptic inspection\n& 6-digit PIN handshake"]
+    E --> F["🌱 ZERO WASTE\nFood consumed fresh\nESG & 80G credited"]
 ```
 
 ---
 
-## 🏨 2. Donor Operator Manual (Hotels, Restaurants & Caterers)
+## 🏨 2. Donor Operator Manual (Hotels, Banquets & Caterers)
 
-### 2.1 Account Onboarding & Kitchen Profile
-1. **Sign Up**: Navigate to `/register` and choose **"Food Donor / Commercial Partner"**.
-2. **Business Details**:
-   - Legal Business Name & Trade Name (e.g., *Grand Hyatt Banquet Operations*).
-   - Physical Kitchen Address with accurate Google Maps pin drop.
-   - FSSAI License Number (14-digit registration; optional for home donors, mandatory for commercial entities).
-   - Emergency Kitchen Contact (Head Chef or F&B Manager mobile number).
-3. **Operating Hours**: Specify default kitchen dispatch windows (e.g., Lunch wrap-up: 15:30–16:30; Dinner wrap-up: 23:00–00:30).
+### 2.1 Onboarding & Kitchen Verification
+1. Navigate to `/signup` and select **"Food Donor / Commercial Partner"**.
+2. **Kitchen Details**:
+   - Enter **Commercial Trade Name** (e.g., *ITC Maurya Banquet Kitchen #3*).
+   - Enter **FSSAI 14-Digit License Number** (Mandatory for hotels, restaurants, and cloud kitchens under the Food Safety and Standards Act, 2006).
+   - Drop the exact **GPS Pin** on the interactive map for dispatch accuracy.
+   - Enter **F&B Manager / Head Chef Emergency Mobile Number** for instant courier coordination.
 
 ---
 
-### 2.2 Step-by-Step Food Listing Guide
+### 2.2 Step-by-Step Food Listing Walkthrough (`CreateDonationPage`)
 
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Donor as F&B Executive
+    participant App as Sharebite Web UI
+    participant AI as Deno Edge Vision AI
+    participant DB as Supabase PostgreSQL
+
+    Donor->>App: Click "+ Create Food Listing"
+    Donor->>App: Upload real-time kitchen photograph
+    App->>AI: Trigger image safety & food scan
+    AI-->>App: Confirmed edible food (Confidence: 94%)
+    Donor->>App: Enter Servings (e.g. 60), Cooked Time & Expiry (3h)
+    Donor->>App: Select Diet (Pure Veg 🟢) & Storage (Hot >65°C)
+    Donor->>App: Click "Publish Listing"
+    App->>DB: INSERT into food_listings (status: 'available')
+    DB-->>App: Broadcast Realtime CDC Alert to nearby NGOs
 ```
-Step 1: Dashboard ➡️ Click "+ Create Food Listing"
-Step 2: Upload Real-Time Photo (AI Scan validates visual quality)
-Step 3: Select Food Category & Serving Size
-Step 4: Tag Dietary Constraints (Veg / Jain / Halal)
-Step 5: Set Cooked Time & Expiry Deadline (FSSAI 2-hr rule)
-Step 6: Specify Storage Temperature & Packaging Type
-Step 7: Confirm Pickup Address & Publish Listing
-```
 
-#### Detailed Field Specifications:
+#### Detailed Form Input Specifications:
 
-| Form Field | Allowed Values | FSSAI Guideline / Operational Rule |
+| Form Field | Recommended Value / Format | FSSAI Compliance Rule |
 |:---|:---|:---|
-| **Title** | Text (e.g., *"Paneer Butter Masala & Steamed Basmati Rice"*)| Be specific; avoid generic titles like *"Leftover food"*. |
-| **Category** | Cooked Meals, Bakery/Dry Goods, Raw Produce, Dairy/Packaged | Cooked meals receive highest courier dispatch priority. |
-| **Servings Count** | Integer (e.g., `45` meals) or Weight in Kg (`18` kg) | 1 Standard Adult Meal ≈ 350g to 450g cooked weight. |
-| **Preparation Time** | Timestamp (within past 3 hours) | Cooked food exceeding 4 hours without refrigeration is rejected. |
-| **Expiry Countdown** | Automatic or custom (Default: 4 hours from prep) | System automatically de-lists item when timer hits zero. |
-| **Storage Status** | Hot Holding (>65°C), Refrigerated (<4°C), Ambient | Crucial for the courier to select the appropriate delivery container. |
+| **Listing Title** | Specific (e.g., *"Dal Makhani & Jeera Pulao"*) | Do NOT use generic terms like *"Leftovers"*. |
+| **Category** | Cooked Meals, Bakery, Produce, Packaged | Cooked gravies receive highest courier dispatch speed. |
+| **Servings Count**| Integer (e.g., `50` meals) or Weight in Kg (`20` kg) | 1 Standard Adult Serving ≈ 350g–450g cooked mass. |
+| **Cooking Timestamp**| Past 1 to 3 hours | Cooked food older than 4 hours without chilling is prohibited. |
+| **Expiry Countdown** | Automatic (Default: 4 hours from prep) | System de-lists batch automatically upon reaching 0:00. |
+| **Storage Temperature**| Hot Holding ($>65^\circ\text{C}$), Cold ($<4^\circ\text{C}$), Ambient | Dictates rider delivery equipment selection. |
 
 ---
 
-### 2.3 Dietary Badging & Allergen Declarations
-To ensure dignified and religiously observant distribution, every listing must carry precise badges:
+### 2.3 Dietary Badging & Mandatory Allergen Declarations
+Every listing must display transparent dietary labeling to respect cultural and dietary requirements:
 
-- 🟢 **Pure Vegetarian (Green Circle in Green Square)**: Zero meat, fish, poultry, or egg content. Contains dairy.
-- 🟡 **Jain Compliant**: Pure vegetarian + strictly NO root vegetables (no onions, garlic, potatoes, carrots, or radishes).
-- 🔴 **Non-Vegetarian (Brown Triangle in Brown Square)**: Contains poultry, mutton, or fish. Must specify halal certification status where applicable.
-- 🌾 **Allergen Alert Checkboxes**: Flag common allergens: `Contains Gluten`, `Contains Peanuts/Nuts`, `Contains Dairy/Lactose`, `Contains Soy`.
+- 🟢 **Pure Vegetarian (Green Dot)**: Contains zero meat, fish, poultry, or eggs. Dairy products permitted.
+- 🟡 **Jain Compliant**: Pure vegetarian + strictly NO root crops (no onions, garlic, potatoes, carrots, radishes).
+- 🔴 **Non-Vegetarian (Red/Brown Triangle)**: Poultry, meat, or fish. Must declare Halal certification if applicable.
+- 🌾 **Allergen Alerts**: Check appropriate flags: `Gluten`, `Peanuts/Tree Nuts`, `Dairy/Lactose`, `Soybeans`.
 
 ---
 
-### 2.4 Packaging & Temperature Protocol
+### 2.4 FSSAI Packaging, Sealing & Temperature Protocols
 
 > [!IMPORTANT]
-> Sharebite adheres to the **FSSAI Food Safety and Standards (Recovery of Surplus Food) Regulations, 2019**. Never donate food that has been touched or left on guest buffet plates. Only untouched batch surplus from kitchen preparation pans or unserved chafing dishes is acceptable.
+> Under **FSSAI Surplus Food Regulations (2019)**, food that has been served on customer buffet plates is classified as waste and **CANNOT** be donated. Only untouched batch surplus from preparation vessels or unserved hot chafing pans is eligible.
 
-1. **Approved Containers**:
-   - Food-grade tamper-evident plastic containers.
-   - Aluminum foil trays with crimped paper/foil lids.
-   - Stainless steel milk cans / sealed drums for gravies and dals (returned to donor within 24 hours).
-2. **Labeling**:
-   - Write the Sharebite **Listing ID** (e.g., `#SB-8921`) and **Preparation Time** directly onto container lids with a permanent marker.
-3. **Temperature Preservation**:
-   - **Hot Food**: Maintain at $>60^\circ\text{C}$ in insulated thermal boxes until the volunteer rider arrives.
-   - **Cold/Salad Items**: Maintain chilled at $<5^\circ\text{C}$ in walk-in cold rooms.
-
----
-
-### 2.5 Handoff & PIN Verification Protocol
-1. When the assigned volunteer rider arrives, verify their **Rider Name** and **Vehicle Registration Number** against your live dashboard.
-2. Hand over the sealed food containers.
-3. **Do NOT share any secret PIN**: The 6-digit verification PIN belongs to the **receiving NGO**, not the donor. Once the rider inspects the seals, mark **"Handed to Courier"** on your dashboard.
+1. **Packaging Materials**:
+   - Heavy-gauge aluminum foil containers with crimped paperboard lids.
+   - Food-grade, tamper-evident plastic tubs.
+   - Stainless steel transport drums for curries and lentils (returned within 24 hours).
+2. **Batch Labeling**:
+   - Marker label on each lid: **Listing ID** (e.g., `#SB-4819`), **Cooking Time**, and **Diet Badge**.
+3. **Thermal Holding**:
+   - Hot food must be held in thermal insulated boxes at $>60^\circ\text{C}$ until rider handoff.
+   - Cold items (salads, desserts) must remain refrigerated at $<5^\circ\text{C}$.
 
 ---
 
-### 2.6 Downloading Tax Exemption (80G) & ESG Certificates
-At the conclusion of each calendar month:
+### 2.5 Courier Handoff Verification
+1. When the assigned rider arrives, verify their **Rider Name** and **Vehicle Registration Number** against your live dashboard screen.
+2. Confirm container seals are intact.
+3. Tap **"Handed to Courier"** in your donor dashboard.
+4. *Note:* **Do not ask for a PIN**. The 6-digit confirmation PIN belongs exclusively to the receiving shelter.
+
+---
+
+### 2.6 Downloading 80G Tax Exemption & ESG Impact Audits
 1. Navigate to **Dashboard ➡️ Impact & Tax Exemption**.
-2. Click **"Download Consolidated 80G Receipt"** (Generated in partnership with accredited recipient NGOs, permitting corporate tax deductions under the Income Tax Act, 1961).
-3. Click **"Export BRSR ESG Carbon Audit"** (SEBI-compliant PDF/CSV detailing metric tons of diverted organic waste and CO₂e emissions prevented).
+2. Click **"Download Monthly 80G Consolidated Certificate"**: Legally accredited receipt enabling corporate income tax deductions under Section 80G of the Indian Income Tax Act, 1961.
+3. Click **"Export SEBI BRSR ESG Report"**: Formatted PDF/CSV documenting avoided landfill tonnage, avoided methane emissions, and community meals served.
 
 ---
 
-## 🛵 3. Volunteer Rider Manual (Food Rescue Couriers)
+## 🛵 3. Volunteer Rider Manual (Rescue Couriers)
 
-### 3.1 Rider Onboarding & Vehicle Profile
-1. **Registration**: Select **"Volunteer Courier / Rescue Rider"**.
-2. **Vehicle Declaration**:
-   - 🚴 **Bicycle / Walking**: Max radius 2.5 km | Max cargo 8 kg.
-   - 🛵 **Two-Wheeler (Motorcycle / EV Scooter)**: Max radius 12 km | Max cargo 25 kg (Requires insulated carrier bag).
-   - 🚗 **Four-Wheeler / Electric Van**: Max radius 30 km | Bulk catering rescues (25 kg to 300 kg).
-3. **Kit Verification**: Upload a photo of your insulated delivery bag (Sharebite branded or standard delivery kit with thermal foil lining).
+### 3.1 Courier Onboarding & Vehicle Kit Declaration
+1. Register under **"Volunteer Courier / Rescue Rider"**.
+2. **Vehicle Category**:
+   - 🚴 **Bicycle / Foot Patrol**: Maximum 2.5 km radius | Maximum 8 kg payload.
+   - 🛵 **Two-Wheeler (Motorcycle / EV Scooter)**: Maximum 12 km radius | Up to 25 kg payload (Insulated delivery bag mandatory).
+   - 🚗 **Four-Wheeler / Electric Van**: Up to 35 km radius | Bulk banquet rescues (30 kg to 300 kg).
+3. **Kit Verification**: Upload a clear photo of your insulated thermal delivery bag.
 
 ---
 
-### 3.2 Browsing & Claiming Rescue Runs
+### 3.2 Mission Radar & Claiming Rescue Runs (`RiderDashboardPage`)
+1. Open the **"Mission Radar"** on your smartphone.
+2. Review run parameters:
+   - **Donor Location & Distance** (e.g., *The Lalit Hotel — 1.8 km*).
+   - **Destination Shelter** (e.g., *Bal Sahyog Children Home — 3.6 km*).
+   - **Batch Volume** (e.g., *40 Servings Rice & Dal — 16 kg*).
+   - **Delivery Deadline** (e.g., *Expires in 42 minutes*).
+3. Swipe **"Accept Rescue Mission"**: The database locks the run exclusively to your account via row-level mutex.
 
+---
+
+### 3.3 Kitchen Pickup & Physical Integrity Checklist
+Upon arrival at the donor's dispatch kitchen:
+- [ ] Verify container lids are tightly sealed without oil seepage.
+- [ ] Confirm food is warm/hot to the touch.
+- [ ] Verify total container count matches the app manifest.
+- [ ] Tap **"Confirm Pickup & Start Route"** to launch turn-by-turn navigation.
+
+---
+
+### 3.4 Transit Safety & Thermal Chain Preservation
+- Place containers strictly upright inside the insulated carrier bag.
+- Keep the thermal zipper closed throughout transit to prevent temperature loss or dust contamination.
+- Follow in-app GPS routing directly without unscheduled intermediate stops.
+
+---
+
+### 3.5 6-Digit Dynamic PIN Handshake at Shelter Gate
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Rider as Volunteer Courier
+    actor NGO as Shelter Supervisor
+    participant DB as PostgreSQL Database
+
+    Rider->>NGO: Arrives at shelter gate with sealed containers
+    NGO->>NGO: Conducts 30-sec organoleptic check (Aroma & Heat)
+    NGO->>NGO: Opens Shelter App & reads aloud 6-Digit PIN (e.g., 582-914)
+    Rider->>Rider: Types PIN into Rider Dashboard
+    Rider->>DB: RPC: verify_pickup_pin(delivery_id, "582914")
+    DB->>DB: Validates cryptographic PIN match
+    DB-->>Rider: Status: DELIVERED (Green Checkmark)
+    DB-->>NGO: Status: DELIVERED (Stock Added)
+    Note over Rider,NGO: Transaction immutably completed & points credited!
 ```
-Interactive Map ➡️ Filter by "Immediate Dispatch" ➡️ Review Distance & Weight ➡️ Swipe "Accept Rescue Mission"
-```
-
-1. Open the **"Active Missions"** tab on your smartphone.
-2. Review the mission card:
-   - **Donor Name & Distance** (e.g., *Hotel Radisson Blu — 2.4 km*).
-   - **NGO Destination** (e.g., *Asha Sadan Children Home — 4.1 km*).
-   - **Item Breakdown** (e.g., *30 Servings Veg Pulao, 10 Litres Dal*).
-   - **Safe Transit Window** (e.g., *Deliver before 17:15 — 38 mins remaining*).
-3. Tap **"Accept Rescue Mission"**: The platform automatically engages an atomic mutex database lock to guarantee you alone own this route.
-
----
-
-### 3.3 Pickup Verification & Hygiene Checklist
-Upon arrival at the donor's kitchen:
-- [ ] Inspect container seals: Ensure no loose lids, oil leaks, or tears.
-- [ ] Visual steam/temperature check: Ensure hot food is warm to the touch.
-- [ ] Confirm item count matches the app manifest (e.g., 3 large foil boxes).
-- [ ] Tap **"Confirm Pickup & Start Navigation"** in the app.
-
----
-
-### 3.4 Transit Safety & Cold-Chain Preservation
-- Secure containers upright in the insulated thermal bag to avoid spillage.
-- Keep the thermal bag zippered shut during transit to prevent heat loss or dust exposure.
-- Follow in-app GPS routing; do not make unscheduled detours while carrying temperature-sensitive cooked food.
-
----
-
-### 3.5 Shelter Handover & 6-Digit PIN Exchange
 
 > [!CAUTION]
-> The atomic completion of every rescue mission is cryptographically locked behind a **6-Digit Dynamic Handshake PIN**. Never leave food at a shelter doorstep without entering this PIN.
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       6-DIGIT PIN HANDSHAKE PROTOCOL                        │
-├─────────────────────────────────────────────────────────────────────────────┤
-│ 1. Rider arrives at Shelter gate.                                           │
-│ 2. Shelter Supervisor inspects the containers (smell & temperature check).  │
-│ 3. Supervisor reads aloud the 6-Digit PIN displayed on their Shelter App.   │
-│ 4. Rider types the 6 digits into their Rider Screen.                        │
-│ 5. Database executes atomic stored procedure `verify_pickup_pin()`.          │
-│ 6. Status updates to `DELIVERED`, and impact points are credited instantly! │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+> Never release food without entering the recipient's 6-digit PIN. The PIN is the only cryptographic proof that food reached genuine beneficiaries.
 
 ---
 
 ### 3.6 Offline Mode & Network Drop Procedures
-If cellular connectivity drops in low-signal basement kitchens or remote shelter locations:
-1. The Sharebite PWA automatically caches the mission state in your phone's **IndexedDB**.
-2. Input the NGO's PIN as normal: The app validates the SHA-256 hash locally.
-3. As soon as your device regains internet connection, the background sync worker flushes the timestamped completion event to the Supabase master cluster.
+In underground kitchens or low-reception shelter zones:
+1. The Sharebite PWA caches your mission state locally in **IndexedDB**.
+2. Type the recipient's PIN as usual: The app validates the local SHA-256 hash offline.
+3. Once your mobile device reconnects to mobile data, the background sync worker flushes the completion event to the server automatically.
 
 ---
 
 ## 🏢 4. NGO & Shelter Manual (Community Recipients)
 
-### 4.1 Shelter Verification & Beneficiary Capacity
-To maintain platform integrity and prevent commercial black-marketing of donated meals:
-1. Upload NGO Trust Deed / Society Registration Certificate / Section 12A & 80G Approval.
-2. Enter **Darpan Portal ID** (for Indian non-profits registered on NITI Aayog Darpan).
-3. Specify your daily beneficiary head-count (e.g., *65 resident children*, *120 elderly inmates*, *300 community kitchen capacity*).
-4. Specify dietary constraints (e.g., *Strictly Pure Veg & Jain Only*).
+### 4.1 Shelter Verification & Beneficiary Quota
+To prevent commercial diversion or black-marketing of donated meals:
+1. Upload NGO Trust Deed / Society Registration Certificate.
+2. Enter **NITI Aayog Darpan ID** (for Indian non-profits).
+3. State verified beneficiary capacity (e.g., *85 resident children*, *140 elderly inmates*).
+4. Specify dietary policies (e.g., *Strictly Pure Vegetarian & Jain Only*).
 
 ---
 
-### 4.2 Setting Radius Alerts & Auto-Claim Rules
-To get first access to nearby surplus listings:
-- **Set Alert Radius**: Define your delivery acceptance boundary (e.g., $5\text{ km}$ or $10\text{ km}$).
-- **Push & WhatsApp Notifications**: Enable instant real-time drop notifications so your kitchen staff can prepare plates ahead of courier arrival.
-- **Auto-Decline Criteria**: Configure items your shelter cannot accept (e.g., non-vegetarian food or unsealed bakery goods).
+### 4.2 Setting Proximity Alerts & Claiming Food (`NGOClaimsDashboard`)
+1. **Set Proximity Radius**: Define acceptable distance (default: 5 km to 10 km).
+2. **Review Incoming Listings**:
+   - Filter by badges: **Pure Veg 🟢**, **Jain 🟡**, **Halal 🔴**.
+   - Check batch quantity against current dining headcount.
+3. **Claim Servings**:
+   - Use the slider to select exact servings needed (supports partial reservations).
+   - Tap **"Confirm Claim"**: An atomic database transaction locks the servings instantly.
 
 ---
 
-### 4.3 Organoleptic Food Inspection (Smell / Sight / Heat Check)
-Before revealing the PIN to the courier, the NGO Kitchen Supervisor must perform a mandatory 30-second **Organoleptic Quality Assessment**:
+### 4.3 Mandatory Organoleptic Food Inspection (Smell / Sight / Heat)
+Before sharing the PIN with the courier, the kitchen supervisor must conduct a **30-Second Organoleptic Quality Assessment**:
 
-| Inspection Step | Pass Criteria | Fail Criteria (Reject & Cancel) |
+```mermaid
+flowchart TD
+    Start["Courier Arrives at Shelter Gate"] --> Aroma{"Aroma Check\nFresh spices?"}
+    Aroma -- "Sour / Fermented / Rancid" --> Reject["❌ REJECT FOOD\nTap 'Report Quality Failure'\nSend to bio-composting"]
+    Aroma -- "Fresh & Normal" --> Visual{"Visual Check\nDiscoloration or froth?"}
+    Visual -- "Bubbling / Slimy" --> Reject
+    Visual -- "Normal Appearance" --> Temp{"Temperature Check\nHot (>55°C) or Chilled (<5°C)?"}
+    Temp -- "Lukewarm > 4 hours" --> Reject
+    Temp -- "Safe Temperature" --> Accept["✅ PASS INSPECTION\nReveal 6-Digit PIN to Courier\nServe Fresh Meals"]
+```
+
+#### Inspection Decision Matrix:
+
+| Inspection Attribute | Accept Criteria | Reject Criteria (Cancel & Quarantine) |
 |:---|:---|:---|
-| **Aroma / Smell** | Fresh, pleasant, characteristic cooked spices. | Sour, fermented, stale, acidic, or rancid odor. |
-| **Visual Appearance**| Normal color, no bubbling or froth on gravy surface. | Slimy texture, visible discoloration, unusual bubbles. |
-| **Physical Temperature**| Cooked gravies warm/hot ($>55^\circ\text{C}$) or chilled. | Lukewarm gravy ($25^\circ\text{C} - 40^\circ\text{C}$) kept >4 hours. |
-| **Container Integrity**| Lids crimped, sealed, no road grit or external water. | Broken lids, spillage, wet cartons, punctured foil. |
+| **Aroma / Odor** | Fresh, characteristic spices and gravy aroma. | Sour, fermented, stale, pungent, or rancid smell. |
+| **Visual Appearance**| Uniform gravy, clear oil, no bubbles. | Surface froth, unusual bubbling, slime, or discoloration. |
+| **Temperature** | Hot gravies ($>55^\circ\text{C}$) or refrigerated ($<5^\circ\text{C}$). | Lukewarm ($25^\circ\text{C}-40^\circ\text{C}$) held over 4 hours. |
+| **Packaging** | Sealed lids, dry containers, intact foil. | Punctured foil, wet cartons, road grime on container. |
 
 ---
 
-### 4.4 Handover PIN Confirmation
-1. If the food passes the organoleptic test, open your **Shelter Dashboard**.
-2. Locate the active delivery card and reveal the **6-Digit Verification PIN** (e.g., `4 8 2 9 1 0`).
-3. Verbally communicate this code to the courier. Once the courier submits it, the transaction is permanently archived.
+### 4.4 Revealing Handshake PIN & Handover Confirmation
+1. Once the food passes organoleptic inspection, open your **Shelter Dashboard**.
+2. Tap on the active delivery card to reveal your **6-Digit Handshake PIN** (e.g., `8 3 1 9 4 0`).
+3. Read the digits aloud to the courier.
+4. As soon as the courier enters the PIN, the status flips to **"Delivered & Verified"**.
 
 ---
 
-### 4.5 Distribution Logging & Impact Auditing
-1. Within 2 hours of consumption, upload 1–2 photographs of the meal distribution.
-2. Confirm the number of individuals served (e.g., *55 children fed dinner*).
-3. Your shelter profile builds an immutable **Public Transparency Index**, unlocking corporate donor grants and kitchen equipment subsidies.
+### 4.5 Distribution Logging & Transparency Score
+1. Within 2 hours of meal service, upload 1–2 photos of the meal distribution.
+2. Confirm the exact count of people fed.
+3. Logging meal distributions builds your shelter's **Public Transparency Rating**, unlocking kitchen modernization grants and priority surplus matching.
 
 ---
 
-## 🛡️ 5. Platform Administrator Manual
+## 🛡️ 5. Platform Administrator Manual (`AdminPage`)
 
-### 5.1 Live Mission Command Center
-Admins monitor real-time platform operations via `/admin/dashboard`:
-- **Real-Time Heartbeat**: Active listings count, unassigned rescue missions, couriers in transit, and total kilograms rescued today.
-- **SLA Breach Watchdog**: Listings with less than 45 minutes until expiry that remain unaccepted are highlighted in pulsing red, triggering automated broadcast alerts to nearby Tier-1 couriers.
+### 5.1 Mission Command Center & Live Operations
+Administrators oversee real-time city logistics via `/admin`:
+- **Real-Time Pulse**: Active listings, in-transit couriers, and total kilograms rescued today.
+- **SLA Expiry Watchdog**: Listings with $<45\text{ minutes}$ until expiry without courier assignment pulse red, triggering broadcast pings to nearby couriers.
 
 ---
 
-### 5.2 AI Image Moderation & Flagged Content Resolution
-Every food photograph uploaded by donors is analyzed asynchronously by the Deno Edge Vision Worker:
-1. **Automated AI Scan**: Inspects image for NSFW violations, non-food stock photography, and deceptive pictures.
+### 5.2 AI Vision Moderation Queue Resolution
+Uploaded food images undergo automated computer vision inspection:
+1. **Automated Filter**: Evaluates image for food classification and safety.
 2. **Flagged Queue (`/admin/moderation`)**:
-   - If AI confidence falls below 85%, the listing is temporarily gated.
-   - Admin can **"Approve Listing"** or **"Reject with Reason"** (e.g., *"Photograph does not show actual prepared food items"*).
+   - If AI confidence is $<85\%$, the listing is held in quarantine.
+   - Admin can **"Approve Listing"** or **"Reject with Feedback"** (e.g., *"Photo shows packaged raw ingredients, not cooked batch surplus"*).
 
 ---
 
-### 5.3 Dispute Resolution & Account Strikes
-To enforce community standards, Sharebite operates a **3-Strike Safety Policy**:
-- **Strike 1 (Warning)**: Minor packaging leak or delayed handoff (>20 mins after courier arrival).
-- **Strike 2 (Temporary 7-Day Suspension)**: Donating food that fails organoleptic shelter inspection.
-- **Strike 3 (Permanent Blacklisting)**: Intentional donation of spoiled food, false PIN entry attempts, or abusive behavior toward couriers.
+### 5.3 Dispute Arbitration & 3-Strike Safety Policy
+To maintain high safety and reliability standards, Sharebite enforces an automated **3-Strike Safety Framework**:
+
+| Violation Tier | Trigger Scenario | Consequence |
+|:---|:---|:---|
+| **Strike 1 (Warning)** | Minor packaging leak or courier wait $>20$ minutes. | Formal email advisory & dashboard warning badge. |
+| **Strike 2 (Suspension)** | Donating food that fails organoleptic inspection. | 7-day account suspension & mandatory hygiene re-certification. |
+| **Strike 3 (Permanent Ban)**| Deliberate spoiled food donation or fake PIN entry. | Permanent account termination & FSSAI authority notification. |
 
 ---
 
-### 5.4 City-Wide ESG & BRSR Report Generation
-Platform administrators can generate comprehensive regional compliance reports for municipal authorities and corporate partners:
-- **Metrics Calculated**: Total Meals Rescued, Landfill Organic Mass Diverted (Tons), Methane Emissions Avoided ($\text{kg CH}_4$), Net Carbon Offsets ($\text{tCO}_2\text{e}$), and Virtual Water Saved (Million Litres).
-- Export formats: **BRSR Core PDF**, **SEBI XBRL-ready CSV**, and **Raw Supabase JSON Dump**.
+### 5.4 City-Wide ESG & BRSR Carbon Report Export
+Administrators can generate auditable sustainability reports:
+- **Carbon Avoidance Formula**:
+
+$$\text{CO}_2\text{e Avoided (kg)} = \text{Servings} \times 0.35\text{ kg} \times 2.5$$
+
+- **Water Conservation Formula**:
+
+$$\text{Virtual Water Saved (Litres)} = \text{Servings} \times 0.35\text{ kg} \times 1,000\text{ L}$$
+
+- Exports are available in **SEBI BRSR-compliant PDF**, **XBRL-ready CSV**, and **Raw JSON**.
 
 ---
 
-## 🚨 6. Emergency & Incident Protocols (SOP-911)
+## 🚨 6. Emergency Protocols & Incident Response (SOP-911)
 
-### Incident 1: Food Quality Rejection at Shelter Gate
-1. **Immediate Quarantine**: Do not distribute any portion of the rejected food.
-2. **App Incident Report**: The shelter manager taps **"Report Quality Failure"** on the delivery screen.
-3. **Photo Evidence**: Upload close-up photos of the discolored or bubbling food.
-4. **Safe Disposal**: The food is directed to local municipal composting or livestock fodder bio-bins; it is never fed to humans.
-5. **Auto Investigation**: The donor account is automatically restricted until the Quality Assurance lead contacts the executive chef.
+### Incident A: Food Fails Organoleptic Check at Shelter Gate
+1. **Immediate Quarantine**: Do not distribute any portion of the affected batch.
+2. **In-App Report**: Shelter manager taps **"Report Food Failure"** and uploads photo evidence.
+3. **Eco-Disposal**: Divert batch to local municipal composting or livestock bio-bins; never feed to humans.
+4. **Auto-Freeze**: The donor's account is automatically placed on review pending QA resolution.
 
-### Incident 2: Courier Breakdown or Accident Mid-Transit
-1. The courier taps **"Emergency / Roadside Assist"** on their active delivery screen.
-2. The system splits the mission into an **Emergency Relay**:
-   - Geofence triggers an urgent ping to the nearest two active riders within a 1.5 km radius.
-   - Secondary rider intercepts, scans the package QR code, and completes the remaining leg of the transit.
+### Incident B: Courier Vehicle Breakdown Mid-Transit
+1. The courier taps **"Roadside Breakdown"** on their active delivery card.
+2. **Emergency Relay Protocol**:
+   - Geofence identifies the two nearest active couriers within a 1.5 km radius.
+   - A secondary courier intercepts, scans the package QR code, and completes the run.
 
-### Incident 3: Lost PIN or Disconnected Phone at Shelter
-1. If the shelter manager’s phone battery dies or internet is down:
-2. The courier and shelter supervisor call the **24x7 Sharebite Toll-Free Dispatch Hotline**.
-3. Dispatch confirms shelter supervisor identity via registered Aadhaar/OTP and executes an **Admin Override Handshake**, closing the run safely.
+### Incident C: Shelter Phone Dead / No Cellular Connection
+1. If the shelter manager’s phone battery is depleted:
+2. The courier and shelter supervisor call the **24x7 Sharebite Dispatch Hotline**.
+3. Dispatch verifies the supervisor's identity via registered phone/OTP and executes an **Admin Override Handshake**, securely completing the mission.
 
 ---
 
 ## 📱 7. Progressive Web App (PWA) Mobile Setup Guide
 
-Sharebite is built as a zero-friction, lightning-fast Progressive Web App (PWA) that installs directly on smartphones without requiring 100MB Play Store downloads:
+Sharebite operates as a lightweight Progressive Web App (PWA) with zero Play Store or App Store download friction:
 
-### For Android Users (Chrome / Brave / Edge)
-1. Open Chrome and visit `https://sharebite.app` (or your local domain).
-2. Look for the bottom banner: **"Add Sharebite to Home screen"**.
-3. Tap **Install**: The app icon will appear alongside your native apps.
-4. Go to **Phone Settings ➡️ Apps ➡️ Sharebite ➡️ Permissions**: Enable **Location** ("While using app") and **Notifications**.
+### Android Installation (Chrome / Brave / Edge)
+1. Open Chrome and visit `https://sharebite.app`.
+2. Tap the bottom prompt: **"Add Sharebite to Home screen"**.
+3. Tap **Install**: The app icon will appear in your mobile app drawer.
+4. Go to **Settings ➡️ Apps ➡️ Sharebite ➡️ Permissions**: Enable **Location** and **Notifications**.
 
-### For iOS / Apple iPhone Users (Safari)
-1. Open **Safari** and navigate to `https://sharebite.app`.
-2. Tap the **Share Icon** (the square with an upward arrow at the bottom of the screen).
+### iOS / Apple iPhone Installation (Safari)
+1. Open **Safari** and visit `https://sharebite.app`.
+2. Tap the **Share Icon** (square with an upward arrow at the bottom of the screen).
 3. Scroll down and tap **"Add to Home Screen"**.
 4. Tap **Add** in the top-right corner.
-5. Open the newly added Sharebite icon from your Home Screen.
+5. Launch Sharebite directly from your iOS Home Screen.
 
 ---
 
 ## ❓ 8. Frequently Asked Questions (FAQ) by Role
 
 ### 🏨 Donors
-**Q: Can we donate half-eaten or customer-returned food?**  
-*A: Absolutely not. Under FSSAI regulations, only untouched batch surplus preserved in kitchen prep trays or unserved chafing pans is legally acceptable.*
+**Q: Can we donate leftover food from customer buffet plates?**  
+*A: No. Under FSSAI regulations, plate-waste is prohibited. Only untouched batch surplus from preparation pans or unserved chafing dishes is acceptable.*
 
-**Q: Are we liable if someone gets ill after eating donated food?**  
-*A: No. Under the Indian Good Samaritan provisions and FSSAI Section 87 guidelines, bona fide food donors acting in good faith without negligence are fully protected from civil and criminal liability.*
+**Q: Are we legally protected if a recipient falls sick?**  
+*A: Yes. Under the Indian Good Samaritan provisions and FSSAI Section 87 guidelines, bona fide donors acting in good faith without gross negligence are completely shielded from civil and criminal liability.*
 
 ---
 
 ### 🛵 Volunteer Couriers
-**Q: Do I get paid for delivery runs?**  
-*A: Sharebite operates on a hybrid model: Community runs earn volunteer certificates, college credits, and CSR reward points. Commercial B2B sponsored catering runs provide fuel allowances (₹40–₹80 per run) credited directly to your UPI ID.*
+**Q: How do courier fuel stipends work?**  
+*A: Community rescue runs earn CSR certificates and volunteer credits. Sponsored commercial catering runs provide automated fuel reimbursements (₹40–₹80 per delivery) credited directly to your registered UPI VPA.*
 
-**Q: What if the donor takes more than 20 minutes to hand over the food?**  
-*A: You can tap "Donor Delay Alert" in your app. If the wait exceeds 20 minutes without communication, you may cancel the mission without any penalty to your rider reliability rating.*
+**Q: What if the donor kitchen takes longer than 20 minutes to hand over food?**  
+*A: Tap "Donor Delay Alert" in your app. If the delay exceeds 20 minutes without communication, you may cancel the run without any penalty to your reliability score.*
 
 ---
 
 ### 🏢 NGOs & Shelters
-**Q: Is there any cost for shelters to receive food?**  
-*A: Zero. 100% of rescued food and logistics routing is completely free of charge for accredited grassroots shelters and orphanages.*
+**Q: Is there any delivery fee charged to receiving shelters?**  
+*A: Absolutely zero. 100% of rescued food and logistics coordination is provided free of charge to accredited grassroots NGOs and shelters.*
 
-**Q: Can we request specific food types (e.g., milk for infants or diabetic diets)?**  
-*A: Yes. You can specify preferred categories in your shelter profile preferences; the system prioritizes relevant drops to your shelter first.*
+**Q: Can we filter specifically for Pure Veg or Jain food?**  
+*A: Yes. Your shelter profile lets you lock dietary filters so your dashboard only alerts you to compliant meal drops.*
 
 ---
 
-*Sharebite Operational Manual v2.4 • Maintained by Sharebite Core Operations Team • FSSAI & DPDP Compliant*
+*Sharebite Complete Operational Manual v2.5 • Maintained by Sharebite Core Operations Team • FSSAI & DPDP Compliant*
