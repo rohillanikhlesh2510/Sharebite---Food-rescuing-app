@@ -1,26 +1,27 @@
-# 🗄️ Sharebite — Complete Backend Database Table & ER Diagram
+# 📊 Sharebite — Complete Database Schema & Entity-Relationship (ER) Specification
 
-> Comprehensive Entity-Relationship (ER) diagram, schema relationships, foreign keys, constraints, and data dictionary for the Sharebite PostgreSQL 15 database.
+> **PostgreSQL 15 Canonical Schema Specification, Mermaid ER Topology, Constraints & Foreign Key DAG**  
+> Covers 19 Relational Schemas, 34 Foreign Key Vectors, 7 Custom Enums, 27 Performance Indexes, and Automated Trigger Lifecycle Functions.
 
 ---
 
 ## 📋 Table of Contents
 
 1. [Complete Entity-Relationship (ER) Diagram](#-1-complete-entity-relationship-er-diagram)
-2. [Subsystem Relational Groups](#-2-subsystem-relational-groups)
-   - [Auth & Identity Subsystem](#21-auth--identity-subsystem)
-   - [Food Donation & Inventory Subsystem](#22-food-donation--inventory-subsystem)
-   - [Logistics, Deliveries & Riders Subsystem](#23-logistics-deliveries--riders-subsystem)
-   - [Real-Time Messaging Subsystem](#24-real-time-messaging-subsystem)
-   - [Auditing, Moderation & Impact Subsystem](#25-auditing-moderation--impact-subsystem)
+2. [Subsystem Relational Topology](#-2-subsystem-relational-topology)
+   - 2.1 [Auth & Identity Subsystem](#21-auth--identity-subsystem)
+   - 2.2 [Food Donation & Inventory Subsystem](#22-food-donation--inventory-subsystem)
+   - 2.3 [Logistics, Deliveries & Riders Subsystem](#23-logistics-deliveries--riders-subsystem)
+   - 2.4 [Real-Time Messaging Subsystem](#24-real-time-messaging-subsystem)
+   - 2.5 [Auditing, Moderation & Impact Subsystem](#25-auditing-moderation--impact-subsystem)
 3. [Foreign Key Dependency Tree (DAG)](#-3-foreign-key-dependency-tree-dag)
 4. [Custom Enums & Type Definitions](#-4-custom-enums--type-definitions)
-5. [Complete Table Data Dictionary](#-5-complete-table-data-dictionary)
+5. [Complete Table Data Dictionary (All 19 Tables)](#-5-complete-table-data-dictionary-all-19-tables)
 6. [Cascade & Referential Integrity Rules](#-6-cascade--referential-integrity-rules)
 
 ---
 
-## 📊 1. Complete Entity-Relationship (ER) Diagram
+## 🗄️ 1. Complete Entity-Relationship (ER) Diagram
 
 ```mermaid
 erDiagram
@@ -153,6 +154,7 @@ erDiagram
         text drop_address
         text food_name
         delivery_status status
+        text pickup_pin_hash
         timestamptz rider_assigned_at
         timestamptz picked_up_at
         timestamptz delivered_at
@@ -171,8 +173,8 @@ erDiagram
 
     rider_location_updates {
         uuid id PK
-        uuid rider_id
-        uuid delivery_task_id
+        uuid rider_id FK "-> riders.id"
+        uuid delivery_task_id FK "-> deliveries.id"
         float latitude
         float longitude
         float heading
@@ -304,23 +306,16 @@ erDiagram
 
 ---
 
-## 🧩 2. Subsystem Relational Groups
+## 🧩 2. Subsystem Relational Topology
 
 ### 2.1 Auth & Identity Subsystem
 Governs user onboarding, authentication, role assignment, and organization affiliations.
 
-```
-┌──────────────────┐         1 : 1          ┌──────────────────┐
-│    auth.users    ├───────────────────────►│ public.profiles  │
-│ (GoTrue Core DB) │                        │ (User Attributes)│
-└────────┬─────────┘                        └────────┬─────────┘
-         │                                           │
-         │ 1 : 1 (Conditional)                       │ 1 : 1 (Conditional)
-         ▼                                           ▼
-┌──────────────────┐                        ┌──────────────────┐
-│  public.riders   │                        │ public.partners  │
-│(Fleet Attributes)│                        │(Organization Org)│
-└──────────────────┘                        └──────────────────┘
+```mermaid
+flowchart LR
+    A["🔐 auth.users\n(GoTrue Engine)"] -->|1 : 1 Mandatory| B["👤 public.profiles\n(Core Attributes)"]
+    A -->|1 : 1 Conditional| C["🛵 public.riders\n(Logistics Attributes)"]
+    B -->|1 : 1 Conditional| D["🏢 public.partners\n(Institutional Orgs)"]
 ```
 
 - **Trigger Binding**: Insertion into `auth.users` fires the `handle_new_user()` trigger to immediately seed `public.profiles`.
@@ -331,52 +326,27 @@ Governs user onboarding, authentication, role assignment, and organization affil
 ### 2.2 Food Donation & Inventory Subsystem
 Manages listing creation, servings decrements, and claims locking.
 
-```
-┌─────────────────────────┐
-│  public.food_listings   │
-│  (Total & Avail Servings│
-└───────┬─────────┬───────┘
-        │         │
- 1 : M  │         │ 1 : M
-        ▼         ▼
-┌──────────────┐ ┌──────────────┐
-│ reservations │ │  donations   │
-│ (NGO Claims) │ │ (Completed)  │
-└───────┬──────┘ └──────────────┘
-        │
-        ▼ 1 : M
-┌──────────────┐
-│pickup_events │
-│(PIN Auditing)│
-└──────────────┘
+```mermaid
+flowchart TD
+    FL["🍱 public.food_listings\n(Total & Available Servings)"] -->|1 : M| RES["📋 public.reservations\n(Active NGO Claims)"]
+    FL -->|1 : M| DON["📊 public.donations\n(Completed Ledgers)"]
+    RES -->|1 : M| PE["📍 public.pickup_events\n(PIN & Inspection Audits)"]
 ```
 
 - **Inventory Integrity Rule**: `available_servings <= servings` checked via SQL constraints.
-- **Atomic Locking**: Claiming executes via `reserve_food()` RPC using `SELECT ... FOR UPDATE` mutex on `food_listings`.
+- **Atomic Locking**: Claiming executes via `claim_food_atomic()` RPC using `SELECT ... FOR UPDATE` mutex on `food_listings`.
 
 ---
 
 ### 2.3 Logistics, Deliveries & Riders Subsystem
 Coordinates delivery task dispatches, real-time GPS locations, and post-delivery ratings.
 
-```
-┌────────────────────────┐         ┌────────────────────────┐
-│  public.food_listings  │         │     public.riders      │
-└───────────┬────────────┘         └───────────┬────────────┘
-            │                                  │
-      1 : M │                                  │ 1 : M
-            ▼                                  ▼
-┌───────────────────────────────────────────────────────────┐
-│                    public.deliveries                      │
-│   (Status: SEARCHING_RIDER -> ASSIGNED -> COLLECTED ...)  │
-└─────────────┬─────────────────────────────────┬───────────┘
-              │                                 │
-        1 : 1 │                                 │ 1 : M
-              ▼                                 ▼
-┌────────────────────────┐         ┌────────────────────────┐
-│  public.rider_ratings  │         │ rider_location_updates │
-│    (1 to 5 Stars)      │         │   (Live Lat, Lng GPS)  │
-└────────────────────────┘         └────────────────────────┘
+```mermaid
+flowchart TD
+    FL["🍱 food_listings"] --> DEL["🛵 public.deliveries\n(Status Lifecycle)"]
+    RD["🛵 public.riders"] --> DEL
+    DEL -->|1 : 1| RR["⭐ public.rider_ratings\n(1 to 5 Stars)"]
+    DEL -->|1 : M| RLU["📡 rider_location_updates\n(Live GPS Breadcrumbs)"]
 ```
 
 ---
@@ -384,19 +354,10 @@ Coordinates delivery task dispatches, real-time GPS locations, and post-delivery
 ### 2.4 Real-Time Messaging Subsystem
 Provides in-app conversation channels linking donors, NGOs, and delivery riders.
 
-```
-┌───────────────────────────┐
-│   public.conversations    │◄──── Optional FK ──── public.food_listings
-│ (direct/donation/delivery)│
-└─────────────┬─────────────┘
-              │
-       ┌──────┴──────────────────────────┐
-       │ 1 : M                           │ 1 : M
-       ▼                                 ▼
-┌───────────────────────────┐     ┌───────────────────────────┐
-│ conversation_participants │     │      public.messages      │
-│  (Membership & Read Ptr)  │     │  (Text, Media, Location)  │
-└───────────────────────────┘     └───────────────────────────┘
+```mermaid
+flowchart TD
+    CV["💬 public.conversations\n(direct / donation / delivery)"] -->|1 : M| CP["👥 conversation_participants\n(User Membership)"]
+    CV -->|1 : M| MSG["✉️ public.messages\n(Text, Media, Location)"]
 ```
 
 ---
@@ -404,18 +365,11 @@ Provides in-app conversation channels linking donors, NGOs, and delivery riders.
 ### 2.5 Auditing, Moderation & Impact Subsystem
 Calculates public environmental impact, screens photos for compliance, and logs notifications.
 
-```
-┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
-│   public.food_listings  │     │   public.reservations   │     │    public.donations     │
-└────────────┬────────────┘     └────────────┬────────────┘     └────────────┬────────────┘
-             │                               │                               │
-             │                               └───────────────┬───────────────┘
-             │                                               ▼
-             ▼ 1 : M                                  ┌──────────────┐
-┌─────────────────────────┐                           │impact_events │
-│     food_moderation     │                           │(CO2e, Water) │
-│ (AI Quality & Spam Reg) │                           └──────────────┘
-└─────────────────────────┘
+```mermaid
+flowchart TD
+    FL["🍱 food_listings"] --> FM["🤖 food_moderation\n(AI Vision Confidence)"]
+    RES["📋 reservations"] --> IE["🌱 impact_events\n(CO2e & Water Avoided)"]
+    DON["📊 donations"] --> IE
 ```
 
 ---
@@ -472,7 +426,7 @@ Level 4 (Dependents on Claims & Deliveries):
 
 ---
 
-## 📖 5. Complete Table Data Dictionary
+## 📖 5. Complete Table Data Dictionary (All 19 Tables)
 
 ### Summary Metrics of Database Design
 - **Total Tables**: 19
@@ -498,4 +452,4 @@ Level 4 (Dependents on Claims & Deliveries):
 
 ---
 
-*Sharebite Database Architecture — PostgreSQL 15 | Canonical Schema v3 | November 2026*
+*Sharebite Database Architecture — PostgreSQL 15 | Canonical Schema v3.2 | November 2026*
