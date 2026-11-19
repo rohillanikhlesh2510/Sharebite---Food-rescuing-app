@@ -260,6 +260,7 @@ Sharebite includes an extensive suite of dedicated architectural specifications:
 | 🚀 **[DEPLOYMENT_DEVOPS_GUIDE.md](../docs/DEPLOYMENT_DEVOPS_GUIDE.md)** | Vercel Edge deployment, Supabase CLI migrations, Deno Edge AI deploy & zero-downtime |
 | 🛡️ **[SECURITY.md](../docs/SECURITY.md)** | DPDP Act 2023 compliance, RLS penetration threat matrix & FSSAI safety norms |
 | 🏛️ **[ARCHITECTURE.md](../docs/ARCHITECTURE.md)** | End-to-end system design, client-server data flow, vendor chunking strategy |
+| 🛠️ **[TECH_STACK_REPORT.md](../docs/TECH_STACK_REPORT.md)** | Modern tech stack audit: React 19, TypeScript 6, Vite 8, Supabase BaaS, Deno Edge AI & Leaflet GIS |
 | 🗄️ **[BACKEND_REPORT.md](../docs/BACKEND_REPORT.md)** | Detailed specification of all 19 DB tables, RPC procedures, RLS policies & triggers |
 | 📡 **[API_DOCUMENTATION.md](../docs/API_DOCUMENTATION.md)** | Complete PostgREST endpoints, Stored Procedure RPC schemas & WebSocket events |
 | ⚛️ **[FRONTEND_REPORT.md](../docs/FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |

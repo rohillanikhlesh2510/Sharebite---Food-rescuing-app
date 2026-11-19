@@ -10,6 +10,7 @@ Welcome to the central documentation archive for the **Sharebite Food Rescuing P
 | Document | Description |
 |:---|:---|
 | 🏛️ **[ARCHITECTURE.md](./ARCHITECTURE.md)** | End-to-end fullstack system design, client-server data flow, vendor chunking strategy, and caching layers |
+| 🛠️ **[TECH_STACK_REPORT.md](./TECH_STACK_REPORT.md)** | Modern tech stack audit: React 19, TypeScript 6, Vite 8, Supabase BaaS, Deno Edge AI & Leaflet GIS |
 | 🔄 **[WORKFLOW_DIAGRAM.md](./WORKFLOW_DIAGRAM.md)** | Visual Mermaid workflows, swimlane lifecycles, and 6-digit PIN verification sequence diagrams |
 | ⚛️ **[FRONTEND_REPORT.md](./FRONTEND_REPORT.md)** | React 19 architecture, routing table, AuthContext state flow & Design Tokens |
 | 🎨 **[UIUX_DESIGN_REPORT.md](./UIUX_DESIGN_REPORT.md)** | Visual identity, design tokens, WCAG 2.1 accessibility & Indian hospitality UX |
