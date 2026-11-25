@@ -38,7 +38,7 @@ Sharebite's mission is to eliminate edible food waste in India by deploying high
 | Phase | Horizon | Focus Area | Target Milestones |
 |:---|:---:|:---|:---|
 | **Phase 0** | **Live** | Web Core & Security | 19 DB tables, RLS, Leaflet GPS, Deno Edge AI, 6-char Handover PIN |
-| **Phase 1** | **Q1–Q2 2027** | Accessibility & Mobility | WhatsApp Bot listing, PWA Offline Sync, Bhasha AI (Hindi + 6 languages) |
+| **Phase 1** | **Q1–Q2 2027** | Accessibility & Mobility | WhatsApp Bot listing, PWA Offline Sync, Bhasha AI (8 Indian languages) |
 | **Phase 2** | **Q3–Q4 2027** | Enterprise & Intelligence | IoT temperature tags, Automated 80G tax receipts, Multi-hop rider batching |
 | **Phase 3** | **2028+** | National Scale | APMC Mandi post-harvest rescue, Mid-Day Meal integration, ESG carbon tokens |
 
@@ -48,13 +48,16 @@ Sharebite's mission is to eliminate edible food waste in India by deploying high
 
 The foundational platform is fully implemented, verified, and active in production:
 
-- [x] **React 19 & TypeScript 6 Architecture**: Modern concurrent rendering with Vite manual vendor code-splitting.
-- [x] **PostgreSQL 15 & 100% RLS Coverage**: Complete transactional data security across all 19 relational tables.
+- [x] **React 19 & TypeScript 6 Architecture**: Modern concurrent rendering with `lazyWithRetry` resilient chunk loading, `ErrorBoundary` fallbacks, and Vite manual vendor code-splitting.
+- [x] **Multi-Role Auth & Route Guards**: Dedicated onboarding/login portals for Donors, NGOs/Acceptors, Riders, and Community members with `AuthStateScreen` session recovery.
+- [x] **Dual-Workflow & Rider Logistics Portal**: End-to-end rider dispatch, `RiderDeliveriesPage`, `RiderEarningsPage`, `LiveTrackingMap`, and `LiveOpportunityPopup` real-time alerts.
+- [x] **PostgreSQL 15 & 100% RLS Coverage**: Complete transactional data security across all 19 relational tables with incremental migrations (`20261123`–`20261124`).
 - [x] **Atomic Claim Mutex (`reserve_food`)**: Row-level locking preventing inventory over-allocation under load.
-- [x] **Serverless AI Image Moderation**: Deno edge function integrating HuggingFace vision models + SHA-256 deduplication.
-- [x] **Anti-Fraud Handover Handshake**: 6-character alphanumeric pickup and dropoff verification codes.
+- [x] **Serverless AI Image Moderation**: Deno edge function (`moderate-image`) integrating vision moderation + SHA-256 deduplication.
+- [x] **Anti-Fraud Handover Handshake**: Alphanumeric pickup and dropoff OTP verification codes.
 - [x] **Haversine Distance Engine**: Spatial mathematical queries returning proximity-ranked food listings in `< 8 ms`.
-- [x] **Supabase Realtime WebSockets**: Live messaging channels and field rider GPS telemetry tracking.
+- [x] **Supabase Realtime WebSockets**: Live messaging channels, claim updates, and field rider GPS telemetry tracking.
+- [x] **Automated E2E Verification Suite**: Headless browser test scripts (`scripts/verify_*.mjs`) covering auth, logistics, session stability, and donor-to-rider flows.
 - [x] **Statutory Compliance**: Full alignment with India's **DPDP Act 2023** and **FSSAI Food Safety** protocols.
 
 ---
