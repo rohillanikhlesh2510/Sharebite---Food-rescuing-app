@@ -630,19 +630,72 @@ const channel = supabase
 
 ## 🤖 10. Deno Edge Functions (`/moderate-image`)
 
-Executed server-side on Deno Deploy with zero client-side credential exposure:
+Executed server-side on Deno Deploy (`supabase/functions/moderate-image/index.ts`) with zero client-side credential exposure:
+
+- **Models:** Dual-model HuggingFace Inference API (`nateraw/food` for food classification + `google/vit-base-patch16-224` for non-food/screenshot/spam filtering).
+- **Limits & Secrets:** Enforces `MAX_IMAGE_SIZE_MB` (default `5 MB`) and reads `HF_TOKEN`, `SUPABASE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` from Supabase Edge secrets.
 
 ```
-Step 1: Receive Image URL & Listing ID
-Step 2: Inspect Magic Bytes (Reject if not valid JPEG/PNG/WebP)
-Step 3: Calculate SHA-256 Checksum (Query duplicate pHash from DB)
-Step 4: Dispatch Parallel ViT Inference to Vision API
+Step 1: Receive { imageUrl, foodName, userId, foodPostId? }
+Step 2: Validate Size & Magic Bytes (Reject non-JPEG/PNG/WebP or > 5 MB)
+Step 3: Calculate SHA-256 Checksum (Detect duplicate images in DB)
+Step 4: Dispatch Parallel ViT Inference to HuggingFace API
         - nateraw/food (Food Classification)
-        - vit-base-patch16 (NSFW & Spam Detection)
-Step 5: Execute Decision Matrix (Confidence >= 85%)
+        - google/vit-base-patch16-224 (Non-food / Screenshot / Spam Detection)
+Step 5: Execute Decision Matrix (Food vs Non-Food / Screenshot / Confidence)
 Step 6: Write Audit Record to 'food_moderation' table
-Step 7: Update Listing Status -> 'available' or 'flagged'
+Step 7: Update Listing Moderation Verdict -> 'approved', 'rejected', or 'manual_review'
 ```
+
+---
+
+## 📦 11. Supabase S3-Compatible Storage Architecture
+
+| Bucket | Access Policy | Purpose |
+|:---|:---|:---|
+| `food-images` | Public Read / Authenticated Donor Upload | Meal photographs moderated by `/moderate-image` |
+| `avatars` | Public Read / Owner Write | User, NGO, and rider profile avatars |
+| `verification-docs` | Private (Admin + Owner RLS) | NGO Darpan certificates, 80G docs, and Rider IDs |
+
+---
+
+## 🔐 12. Authentication & RBAC Identity Lifecycle
+
+- **GoTrue JWT + OAuth:** Supports email/password signup, password reset (`/forgot-password`, `/reset-password`), and OAuth callback (`/auth/callback`).
+- **Role-Scoped Signup:** Dedicated portals for `donor`, `ngo`/`acceptor`, `rider`, and `community` roles, synced to `public.profiles` via `handle_new_user()` and hardened by `20261123_auth_role_security_fix.sql`.
+- **Demo Mode Fallback:** When `VITE_SUPABASE_URL` / `VITE_SUPABASE_ANON_KEY` are omitted, `src/services/auth.ts` and `AuthContext.tsx` run an isolated in-browser demo session.
+
+---
+
+## 🧩 13. TypeScript Service Layer Abstraction
+
+All PostgREST, RPC, Realtime, and Storage calls are encapsulated in `src/services/`:
+
+| Service File | Responsibility |
+|:---|:---|
+| `auth.ts` | Session management, profile fetch, role dashboard routing, demo auth |
+| `donations.ts` | `food_listings` CRUD, proximity & dietary filters |
+| `claims.ts` | Atomic claim lifecycle (`reserve_food` / `claim_food_atomic`), OTP handoff |
+| `chat.ts` | `conversations` & `messages` real-time threads |
+| `notifications.ts` | In-app notification queries & live alerts |
+| `ngo.ts` & `ngoDiscovery.ts` | NGO profiles, Darpan verification, verified directory search |
+| `partners.ts` | Institutional & corporate partner queries |
+| `impact.ts` | `impact_events` aggregation (meals, kg rescued, CO₂e prevented) |
+| `location.ts` | Browser geolocation & Haversine distance helpers |
+
+---
+
+## 🗂️ 14. Canonical Database Migration Topology
+
+Database evolution in `supabase/` combines consolidated schemas and timestamped incremental migrations:
+
+1. **Core & Consolidated Schemas:** `migration.sql`, `complete_schema.sql`, `profiles_rls_fix.sql`
+2. **Feature Modules:** `rider_delivery_migration.sql`, `chat_and_realtime_migration.sql`, `moderation_migration.sql`, `ngo_discovery_migration.sql`, `god_mode_migration.sql`, `phase2_14_migration.sql`, `web_fixes_migration.sql`
+3. **Timestamped Migrations (`supabase/migrations/`):**
+   - `20261123_auth_role_security_fix.sql` — Role-assignment hardening & auth trigger fixes
+   - `20261123_realtime_logistics_upgrade.sql` — Realtime publication & courier dispatch upgrades
+   - `20261124_dual_workflow_complete.sql` — Dual-workflow claim & delivery state transitions
+   - `20261124_rider_portal_complete.sql` — Rider portal views, earnings & delivery RPCs
 
 ---
 
@@ -658,4 +711,22 @@ Step 7: Update Listing Status -> 'available' or 'flagged'
 
 ---
 
-*Sharebite Backend Architecture Specification v2.4 • Maintained by Sharebite Engineering Core Team*
+## ⚙️ 16. Environment Configuration Reference
+
+Required client variables (`.env.example`):
+```env
+VITE_SUPABASE_URL=your_supabase_url_here
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+```
+
+Required Supabase Edge Function secrets (`moderate-image`):
+```env
+HF_TOKEN=hf_your_huggingface_token
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+MAX_IMAGE_SIZE_MB=5
+```
+
+---
+
+*Sharebite Backend Architecture Specification v2.5 • Maintained by Sharebite Engineering Core Team*
