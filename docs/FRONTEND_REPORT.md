@@ -89,18 +89,20 @@ flowchart TD
 ```tsx
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import ErrorBoundary from './components/states/ErrorBoundary';
 import App from './App.tsx';
-import './styles/tokens.css';
-import './styles/global.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary fallbackTitle="ShareBite could not start">
+      <App />
+    </ErrorBoundary>
   </StrictMode>
 );
 ```
 
 - **React Concurrent Mode**: Enabled natively via `createRoot`.
+- **Top-Level Resilience**: Wrapped in `ErrorBoundary` to catch boot-time rendering failures.
 - **StrictMode**: Active during development to detect side-effects and guarantee idempotent hooks.
 
 ### 3.2 Provider Hierarchy (`App.tsx`)
@@ -108,18 +110,23 @@ createRoot(document.getElementById('root')!).render(
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 1000 * 60 * 2,  // 2-minute memory cache
-      gcTime: 1000 * 60 * 10,    // 10-minute garbage collection
+      staleTime: 1000 * 60 * 5,  // 5-minute memory cache
+      gcTime: 1000 * 60 * 15,    // 15-minute garbage collection
       retry: 1,                  // Retry failed queries once before erroring
-      refetchOnWindowFocus: true,// Auto-revalidate when user returns to tab
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
     },
   },
 });
 
+const handleSessionReset = () => {
+  queryClient.clear();
+};
+
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+      <AuthProvider onSessionReset={handleSessionReset}>
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
@@ -138,11 +145,16 @@ Routing is orchestrated via **React Router DOM v7** utilizing hybrid eager + laz
 ### 4.1 Route Guard Components
 
 #### 1. `ProtectedRoute`
-Guarantees unauthenticated visitors cannot access internal pages:
+Guarantees unauthenticated visitors cannot access internal pages while handling profile/role error states cleanly via `AuthStateScreen`:
 ```tsx
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
-  if (loading) return <LoadingState message="Authenticating session..." />;
+  const { user, authStatus, authError, retryAuth, logout } = useAuth();
+  if (authStatus === 'initializing' || authStatus === 'loading_profile') {
+    return <AuthStateScreen mode="loading" message="..." />;
+  }
+  if (authStatus === 'error' || authStatus === 'profile_missing' || authStatus === 'invalid_role') {
+    return <AuthStateScreen mode={authStatus} message={authError} onRetry={retryAuth} onSignOut={logout} />;
+  }
   if (!user) return <Navigate to="/register" replace />;
   return <>{children}</>;
 }
@@ -152,9 +164,18 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 Redirects already logged-in users away from registration/login views straight into their role dashboard:
 ```tsx
 function PublicOnlyRoute({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
-  if (loading) return <LoadingState />;
-  if (user) return <Navigate to={getRoleDashboardPath(user.role)} replace />;
+  const { user, authStatus, authError, retryAuth, logout } = useAuth();
+  if (authStatus === 'initializing' || authStatus === 'loading_profile') {
+    return <AuthStateScreen mode="loading" message="Checking your ShareBite session..." />;
+  }
+  if (authStatus === 'error' || authStatus === 'profile_missing' || authStatus === 'invalid_role') {
+    return <AuthStateScreen mode={authStatus} message={authError} onRetry={retryAuth} onSignOut={logout} />;
+  }
+  if (user) {
+    const destination = getRoleDashboardPath(user.role);
+    if (!destination) return <AuthStateScreen mode="invalid_role" ... />;
+    return <Navigate to={destination} replace />;
+  }
   return <>{children}</>;
 }
 ```
@@ -173,34 +194,43 @@ Validates that a logged-in user possesses the required persona to view a specifi
 
 | Route Path | Primary Component | Protection Level | Authorized Personas |
 |:---|:---|:---|:---|
-| `/` | `LandingPage` | Public (Eager) | Unrestricted |
+| `/` | `RootRoute` (`LandingPage`) | Public (Eager) | Unrestricted (forwards OAuth callback params) |
 | `/about` | `AboutPage` | Public (Lazy) | Unrestricted |
 | `/how-it-works` | `HowItWorksPage` | Public (Lazy) | Unrestricted |
 | `/impact` | `PublicImpactPage` | Public (Lazy) | Unrestricted |
 | `/partners` | `PartnersPage` | Public (Lazy) | Unrestricted |
 | `/register` | `RoleSelectPage` | PublicOnly | Unauthenticated |
-| `/register/:role` | `SingleRoleAuthPage` | PublicOnly | Unauthenticated |
-| `/login/:role` | `SingleRoleAuthPage` | PublicOnly | Unauthenticated |
+| `/register/donor`, `/login/donor` | `DonorRegisterPage` | PublicOnly | Unauthenticated |
+| `/register/acceptor`, `/register/ngo`, `/login/acceptor`, `/login/ngo` | `AcceptorRegisterPage` | PublicOnly | Unauthenticated |
+| `/register/rider`, `/login/rider` | `RiderRegisterPage` | PublicOnly | Unauthenticated |
+| `/register/community`, `/login/community`, `/register/:role`, `/login/:role` | `SingleRoleAuthPage` | PublicOnly | Unauthenticated |
+| `/forgot-password` | `ForgotPasswordPage` | PublicOnly | Unauthenticated |
+| `/reset-password` | `ResetPasswordPage` | Public | Password Recovery |
 | `/auth/callback` | `AuthCallbackPage` | Public | OAuth Token Exchange |
-| `/dashboard` | `RoleBasedDashboard`| Protected | Any authenticated user |
-| `/donor-dashboard` | `DonorDashboardPage` | Protected + Role | `donor`, `partner`, `admin` |
-| `/donations/new` | `CreateDonationPage` | Protected + Role | `donor`, `partner`, `admin` |
-| `/donor-donations` | `DonorDonationsStatus`| Protected + Role | `donor`, `partner`, `admin` |
+| `/dashboard` | `RoleBasedDashboard` | Protected | Any authenticated user |
+| `/donor-dashboard`, `/donor/dashboard` | `DonorDashboardPage` | Protected + Role | `donor`, `partner`, `household`, `admin` |
+| `/donations/new`, `/donor/donate`, `/donations/:id/edit` | `CreateDonationPage` | Protected + Role | `donor`, `partner`, `household`, `admin` |
+| `/donor-donations`, `/donor/my-donations` | `DonorDonationsStatus` | Protected + Role | `donor`, `partner`, `household`, `admin` |
 | `/donations` | `DonationsPage` | Protected | Any authenticated user |
 | `/donations/:id` | `DonationDetailPage` | Protected | Any authenticated user |
-| `/ngo-dashboard` | `NGOClaimsDashboard` | Protected + Role | `ngo`, `receiver`, `admin` |
-| `/ngos` | `NGODiscoveryPage` | Protected | Any authenticated user |
-| `/rider-dashboard` | `RiderDashboardPage` | Protected + Role | `rider`, `volunteer`, `admin` |
-| `/community-dashboard`| `BeneficiaryDashboard` | Protected + Role | `community`, `receiver`, `admin` |
+| `/rider-dashboard`, `/rider/dashboard` | `RiderDashboardPage` | Protected + Role | `rider`, `volunteer`, `admin` |
+| `/rider/available-food`, `/rider/deliveries` | `RiderDeliveriesPage` | Protected + Role | `rider`, `volunteer`, `admin` |
+| `/rider/earnings` | `RiderEarningsPage` | Protected + Role | `rider`, `volunteer`, `admin` |
+| `/my-claims`, `/ngo-dashboard`, `/ngo/dashboard`, `/ngo/collections` | `NGOClaimsDashboard` | Protected + Role | `ngo`, `receiver`, `acceptor`, `admin` |
+| `/ngo/available-food` | `DiscoverPage` | Protected + Role | `ngo`, `receiver`, `acceptor`, `admin` |
+| `/community-dashboard` | `BeneficiaryDashboardPage` | Protected + Role | `community`, `admin` |
 | `/discover` | `DiscoverPage` | Protected | Any authenticated user |
 | `/map` | `MapPage` | Protected | Any authenticated user |
-| `/chat` | `ChatPage` | Protected | Any authenticated user |
-| `/chat/:id` | `ChatPage` | Protected | Any authenticated user |
+| `/requests` | `RequestsPage` | Protected | Any authenticated user |
+| `/ngos` | `NGODiscoveryPage` | Protected | Any authenticated user |
+| `/chat`, `/chat/:conversationId` | `ChatPage` | Protected | Any authenticated user |
 | `/notifications` | `NotificationsPage` | Protected | Any authenticated user |
-| `/impact-dashboard`| `ImpactDashboardPage`| Protected | Any authenticated user |
+| `/impact-dashboard` | `ImpactDashboardPage` | Protected | Any authenticated user |
 | `/profile` | `ProfilePage` | Protected | Any authenticated user |
 | `/settings` | `SettingsPage` | Protected | Any authenticated user |
+| `/verification` | `VerificationPage` | Protected | Any authenticated user |
 | `/admin` | `AdminPage` | Protected + Role | `admin` only |
+| `*` | `NotFoundPage` | Public (Eager) | 404 Fallback |
 
 ---
 
@@ -286,8 +316,13 @@ src/components/
 │   └── RoleRouteGuard.tsx     # Route-level RBAC wrapper
 ├── map/
 │   ├── FoodMap.tsx            # Full-screen Leaflet map with custom SVG pins
-│   └── DiscoverFoodMap.tsx    # Split-view discover map
+│   ├── DiscoverFoodMap.tsx    # Split-view discover map
+│   └── LiveTrackingMap.tsx    # Real-time rider route tracking map
+├── notifications/
+│   └── LiveOpportunityPopup.tsx # Real-time claim/delivery opportunity toast
 ├── states/
+│   ├── AuthStateScreen.tsx    # Session loading, profile error & retry screen
+│   ├── ErrorBoundary.tsx      # React error boundary fallback
 │   ├── LoadingState.tsx       # Accessible SVG loading indicator
 │   ├── EmptyState.tsx         # Zero-data placeholder with actionable CTA
 │   └── ErrorState.tsx         # Error card with retry button
@@ -342,11 +377,11 @@ Sharebite implements an **Indian Hospitality & Food Heritage** aesthetic, combin
 
 ## ⚡ 10. Performance Optimizations & Code Splitting
 
-1. **Lazy Loading Route Boundaries**: Every internal dashboard (`DonorDashboardPage`, `RiderDashboardPage`, etc.) is dynamically imported via `React.lazy()`:
+1. **Resilient Lazy Loading (`lazyWithRetry`)**: Every internal dashboard (`DonorDashboardPage`, `RiderDashboardPage`, etc.) is dynamically imported via `lazyWithRetry()` (`src/lib/lazyWithRetry.ts`), automatically recovering from stale chunk hash errors after deployments:
    ```tsx
-   const DonorDashboardPage = lazy(() => import('./pages/app/DonorDashboardPage'));
+   const DonorDashboardPage = lazyWithRetry(() => import('./pages/app/DonorDashboardPage'));
    ```
-2. **Eager Critical Path**: `LandingPage` is imported statically to guarantee a **First Contentful Paint (FCP) under 0.8s**.
+2. **Eager Critical Path**: `LandingPage` and `NotFoundPage` are imported statically for fast initial render and reliable fallback.
 3. **Leaflet Bundle Isolation**: The 150KB Leaflet GIS package is kept out of the initial bundle and only fetched when navigating to `/map` or `/discover`.
 4. **CSS Modules Zero-Runtime**: Styles are compiled directly into static classes with hash namespacing (`DonorDashboard_card__3f8b`), eliminating CSS-in-JS runtime overhead.
 
@@ -467,7 +502,7 @@ sequenceDiagram
 
     User->>UI: Opens Dashboard
     UI->>Query: Request ['claims', user.id]
-    alt Data in Cache and Fresh (< 2 mins)
+    alt Data in Cache and Fresh (< 5 mins)
         Query-->>UI: Instant Render from Memory Cache
     else Data Stale or Missing
         Query->>Service: Execute getMyClaims()
