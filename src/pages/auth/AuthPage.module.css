@@ -1,0 +1,696 @@
+/* ============================================================
+   SHAREBITE — High-Fidelity Split-Screen Auth Styles
+   ============================================================ */
+.page {
+  min-height: 100vh;
+  background-color: #FAF7F2;
+  color: #1C1A17;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Organic Peach Background Blobs */
+.bgBlobLeft {
+  position: absolute;
+  left: -90px;
+  top: 34%;
+  width: 200px;
+  height: 320px;
+  background: #F3E6D8;
+  border-radius: 50% 40% 60% 40%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.bgBlobRight {
+  position: absolute;
+  right: -60px;
+  bottom: -40px;
+  width: 280px;
+  height: 280px;
+  background: #F3E6D8;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+/* Corner Botanical Leaves */
+.leafTopLeft {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 46px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leafBottomLeft {
+  position: absolute;
+  top: 360px;
+  left: 0;
+  width: 44px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leafTopRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 125px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Top Navigation Bar in Auth */
+.topNav {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 20px 36px 0 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+}
+
+.brandLink {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.logoBadge {
+  width: 38px;
+  height: 38px;
+  background: #BF5B27;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  box-shadow: 0 2px 6px rgba(191, 91, 39, 0.22);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #1C1A17;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.brandTagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #8B7355;
+}
+
+/* Auth Container Grid */
+.authContainer {
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 12px 36px 32px 36px;
+  display: grid;
+  grid-template-columns: 1.18fr 1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+/* Left Brand Showcase Column */
+.leftShowcase {
+  display: flex;
+  flex-direction: column;
+  padding-right: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  background: #EAF0E5;
+  border: 1px solid #D2E0CC;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4A6741;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.badgeIcon {
+  width: 13px;
+  height: 13px;
+  color: #4A6741;
+}
+
+.headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 46px;
+  line-height: 1.14;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.accent {
+  color: #BF5B27;
+}
+
+.subheadline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #5A5044;
+  margin-bottom: 20px;
+  max-width: 470px;
+}
+
+/* 3 Impact Pillars Row */
+.pillarsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pillarItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.pillarIconBox {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #EAF0E5;
+  color: #5B7E35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillarLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #383129;
+  line-height: 1.25;
+}
+
+.pillarDivider {
+  width: 1px;
+  height: 22px;
+  background-color: #DDD4C7;
+}
+
+/* Cursive Note on Left */
+.scriptHeaderWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -18px;
+  padding-right: 48px;
+  position: relative;
+  z-index: 5;
+}
+
+.scriptNote {
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4A3A2C;
+  line-height: 1.2;
+  text-align: right;
+  transform: rotate(-3deg);
+}
+
+.scriptHeart {
+  font-size: 20px;
+  color: #4A3A2C;
+  margin-top: 1px;
+}
+
+/* Food Sharing Visual Frame - Seamless blend into cream background */
+.foodSharingVisualWrap {
+  position: relative;
+  max-width: 530px;
+  width: 100%;
+}
+
+.foodSharingImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   RIGHT AUTH CARD
+   ============================================================ */
+
+.rightCardWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.authCard {
+  background: #FFFFFF;
+  border-radius: 26px;
+  padding: 34px 38px;
+
+  width: 100%;
+  max-width: 470px;
+  box-shadow: 0 14px 44px rgba(35, 25, 15, 0.07);
+  border: 1px solid #EDE5D8;
+  position: relative;
+  z-index: 2;
+}
+
+.cardTopHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cardLogoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cardTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.02em;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.cardSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #7A6F62;
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.45;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #383129;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: #8B7E72;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px 12px 42px;
+  border-radius: 12px;
+  border: 1.5px solid #E0D7C9;
+  background: #FAF8F5;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #1C1A17;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #BF5B27;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(191, 91, 39, 0.12);
+}
+
+.input::placeholder {
+  color: #A89C8D;
+  font-size: 13.5px;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #8B7E72;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.eyeBtn:hover {
+  color: #1C1A17;
+}
+
+.forgotLinkWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -6px;
+}
+
+.forgotLink {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #BF5B27;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.forgotLink:hover {
+  color: #A64C1E;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 12px;
+  background: #BF5B27;
+  color: #FFFFFF;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(191, 91, 39, 0.3);
+  transition: background 0.15s, transform 0.15s;
+  margin-top: 4px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #A64C1E;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: #A39686;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #E6DDD0;
+}
+
+.googleBtn {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #E0D7C9;
+  color: #1C1A17;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.googleBtn:hover {
+  background: #F7F2EB;
+  border-color: #C8BAA8;
+}
+
+.switchFooter {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #7A6F62;
+  margin-top: 20px;
+}
+
+.switchLink {
+  color: #BF5B27;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: color 0.15s;
+}
+
+.switchLink:hover {
+  color: #A64C1E;
+}
+
+.errorBanner {
+  padding: 10px 14px;
+  background: #FEE2E2;
+  border: 1px solid #FCA5A5;
+  border-radius: 10px;
+  color: #B91C1C;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Role Selector for Signup */
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.roleBtn {
+  padding: 10px 8px;
+  border-radius: 10px;
+  border: 1.5px solid #E0D7C9;
+  background: #FAF8F5;
+  color: #5A5044;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s;
+}
+
+.roleBtnActive {
+  border-color: #BF5B27;
+  background: #FDF4ED;
+  color: #BF5B27;
+  box-shadow: 0 2px 6px rgba(191, 91, 39, 0.15);
+}
+
+@media (max-width: 992px) {
+  .authContainer {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-top: 10px;
+  }
+
+  .leftShowcase {
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .subheadline {
+    max-width: 100%;
+  }
+
+  .scriptHeaderWrap {
+    display: none;
+  }
+
+  .pillarsRow {
+    justify-content: center;
+  }
+
+  .foodSharingVisualWrap {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .authCard {
+    padding: 28px 20px;
+  }
+
+  .headline {
+    font-size: 38px;
+  }
+
+  .pillarsRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pillarDivider {
+    display: none;
+  }
+}
+
+/* Quick Demo Login Box */
+.demoBanner {
+  background: linear-gradient(135deg, #FFF8EE 0%, #FFF2E2 100%);
+  border: 1.5px dashed #E5A87B;
+  border-radius: 12px;
+  padding: 13px 14px;
+  margin-bottom: 20px;
+}
+
+.demoBannerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.demoBannerTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #BF5B27;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.demoBannerBadge {
+  background: #BF5B27;
+  color: #FFFFFF;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.demoBannerDesc {
+  font-size: 12px;
+  color: #7A6953;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.demoRolesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.demoRoleCard {
+  background: #FFFFFF;
+  border: 1px solid #E8DDD0;
+  border-radius: 8px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.demoRoleCard:hover {
+  border-color: #BF5B27;
+  background: #FFFBF7;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(191, 91, 39, 0.12);
+}
+
+.demoRoleIcon {
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demoRoleInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.demoRoleName {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #2D251E;
+}
+
+.demoRoleSub {
+  font-size: 9.5px;
+  color: #8C7B6B;
+}

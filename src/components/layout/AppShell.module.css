@@ -1,0 +1,230 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.main {
+  flex: 1;
+  padding-top: var(--navbar-height);
+  min-height: 100vh;
+  transition: padding-left var(--transition-slow);
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: var(--sidebar-width);
+  }
+}
+
+.content {
+  padding: 18px 24px 32px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+/* ─── Rider Portal Dedicated Shell (Donor/NGO untouched) ─── */
+.riderShellBg {
+  background: #fbf8f4;
+}
+
+.riderMain {
+  padding-top: 0;
+}
+
+.riderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 0 20px;
+  flex-wrap: wrap;
+}
+
+.riderHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.riderMenuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid #ece3d8;
+  background: #ffffff;
+  color: #1e293b;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .riderMenuBtn {
+    display: none;
+  }
+}
+
+.riderGreeting {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 22px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.riderSubGreeting {
+  font-size: 13px;
+  color: #64748b;
+  margin: 2px 0 0;
+}
+
+.riderHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.onlinePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.onlinePillActive {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.onlinePillOffline {
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+.onlineStatusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.riderNotifBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #efe7dc;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.riderNotifDot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9999px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.riderProfileWrap {
+  position: relative;
+}
+
+.riderProfileBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #efe7dc;
+  border-radius: 9999px;
+  padding: 3px 10px 3px 3px;
+  cursor: pointer;
+}
+
+.riderDropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 200px;
+  background: #ffffff;
+  border: 1px solid #ece3d8;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+  padding: 8px;
+  z-index: 90;
+}
+
+.riderDropdownHead {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.riderDropdownHead strong {
+  font-size: 13.5px;
+  color: #1e293b;
+}
+
+.riderDropdownHead span {
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.riderDropItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.riderDropItem:hover {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.riderDropDanger {
+  color: #dc2626;
+}

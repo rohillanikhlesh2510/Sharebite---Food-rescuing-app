@@ -1,0 +1,137 @@
+/* ============================================================
+   SHAREBITE — Design Tokens
+   ============================================================ */
+
+:root {
+  /* Primary: Terracotta / Warm Clay */
+  --color-primary:     #c17b3f;
+  --color-primary-50:  #fdf6f0;
+  --color-primary-100: #f9e8d8;
+  --color-primary-200: #f3cdb0;
+  --color-primary-300: #e8a878;
+  --color-primary-400: #d98244;
+  --color-primary-500: #c17b3f;
+  --color-primary-600: #a36332;
+  --color-primary-700: #854e28;
+  --color-primary-dark:  #a36332;
+  --color-primary-light: #f9e8d8;
+
+  /* Secondary: Muted Olive Green */
+  --color-secondary:     #6b8e3e;
+  --color-secondary-50:  #f4f7ef;
+  --color-secondary-100: #e5edda;
+  --color-secondary-200: #cad9b4;
+  --color-secondary-400: #88a95c;
+  --color-secondary-500: #6b8e3e;
+  --color-secondary-600: #547332;
+  --color-secondary-light: #e5edda;
+
+  /* Accent: Warm Muted Gold */
+  --color-accent:       #d4a853;
+  --color-accent-light: #faf0d2;
+  --color-accent-dark:  #b88a35;
+
+  /* Background & Surface */
+  --color-bg:          #faf7f2;
+  --color-bg-alt:      #f5f1ea;
+  --color-surface:     #ffffff;
+  --color-surface-alt: #fefcf9;
+
+  /* Text */
+  --color-text-primary:   #1c1a17;
+  --color-text-secondary: #4a4038;
+  --color-text-muted:     #8b7355;
+  --color-text-disabled:  #c4b49e;
+  --color-text-inverse:   #ffffff;
+  --color-text-on-primary: #ffffff;
+
+  /* Borders */
+  --color-border:        #e8e0d4;
+  --color-border-strong: #c8baa8;
+  --color-border-subtle: #f0ebe3;
+
+  /* Semantic */
+  --color-error:         #dc2626;
+  --color-error-bg:      #fef2f2;
+  --color-success:       #16a34a;
+  --color-success-bg:    #f0fdf4;
+  --color-warning:       #ca8a04;
+  --color-warning-bg:    #fefce8;
+  --color-info:          #2563eb;
+  --color-info-bg:       #eff6ff;
+
+  /* Status */
+  --color-urgent:      #dc2626;
+  --color-pickup-soon: #ca8a04;
+  --color-fresh:       #16a34a;
+
+  /* Typography */
+  --font-heading: 'DM Sans', 'Inter', system-ui, sans-serif;
+  --font-serif:   'Playfair Display', Georgia, serif;
+  --font-script:  'Kalam', cursive;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  --font-normal:   400;
+  --font-medium:   500;
+  --font-semibold: 600;
+  --font-bold:     700;
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border Radius */
+  --radius-xs:   0.25rem;
+  --radius-sm:   0.375rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(28,26,23,0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(28,26,23,0.08), 0 1px 2px -1px rgba(28,26,23,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(28,26,23,0.08), 0 2px 4px -2px rgba(28,26,23,0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(28,26,23,0.08), 0 4px 6px -4px rgba(28,26,23,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(28,26,23,0.08), 0 8px 10px -6px rgba(28,26,23,0.05);
+
+  /* Transitions */
+  --transition-fast:  150ms ease;
+  --transition-base:  200ms ease;
+  --transition-slow:  300ms ease;
+
+  /* Layout */
+  --sidebar-width:    260px;
+  --navbar-height:    64px;
+  --max-width:        1280px;
+  --content-padding:  var(--space-6);
+
+  /* Z-index */
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
