@@ -1,0 +1,681 @@
+/* ============================================================
+   SHAREBITE — High-Fidelity Landing Page Styles
+   ============================================================ */
+
+.page {
+  min-height: 100vh;
+  background-color: #FAF7F2;
+  color: #1C1A17;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Botanical Corner Decorations */
+.leafTopLeft {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leafBottomLeft {
+  position: absolute;
+  top: 380px;
+  left: 0;
+  width: 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+.heroSection {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Hero Column */
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 20px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: #EAF0E5;
+  border: 1px solid #D2E0CC;
+  border-radius: 9999px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #4A6741;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.heroBadgeIcon {
+  width: 14px;
+  height: 14px;
+  color: #4A6741;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 56px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.heroAccent {
+  color: #BF5B27;
+}
+
+.heroSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #5A5044;
+  margin-bottom: 30px;
+  max-width: 530px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 42px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  background: #BF5B27;
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(191, 91, 39, 0.3);
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btnPrimary:hover {
+  background: #A64C1E;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(191, 91, 39, 0.38);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  background: #FFFFFF;
+  border: 1.5px solid #D6CBC0;
+  color: #1C1A17;
+  border-radius: 9999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btnSecondary:hover {
+  background: #F5EFE6;
+  border-color: #BEB09F;
+}
+
+/* Trust Features Row */
+.trustRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trustIcon {
+  color: #5C5042;
+  flex-shrink: 0;
+}
+
+.trustLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #383129;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.trustDivider {
+  width: 1px;
+  height: 24px;
+  background-color: #DDD4C7;
+}
+
+/* Right Hero Visual Column */
+.heroRight {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 540px;
+}
+
+.heroImageWrap {
+  position: relative;
+  z-index: 2;
+  width: 490px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.heroBoyImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Floating Overlapping Feature Cards (Between Left & Right) */
+.floatingCardsContainer {
+  position: absolute;
+  left: -55px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10;
+  width: 290px;
+}
+
+.featureCard {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 30px rgba(30, 20, 10, 0.09);
+  border: 1px solid rgba(220, 210, 195, 0.7);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(30, 20, 10, 0.13);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.cardIconBox {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1A17;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  color: #7A6F62;
+  line-height: 1.35;
+  margin-top: 3px;
+}
+
+.cardActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1.5px solid #C17B3F;
+  color: #BF5B27;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cardActionBtn:hover {
+  background: #BF5B27;
+  color: #FFFFFF;
+}
+
+/* ============================================================
+   WHITE PILL IMPACT BANNER
+   ============================================================ */
+
+.impactBannerSection {
+  max-width: 1360px;
+  margin: 30px auto 70px auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 3;
+}
+
+.impactPill {
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 24px 36px;
+  box-shadow: 0 14px 40px rgba(35, 25, 15, 0.07);
+  border: 1px solid #EFE8DC;
+  display: grid;
+  grid-template-columns: 1.3fr 1.2fr 1.2fr 1.2fr 1.2fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.impactLead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.impactLeadIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #EEF5E9;
+  color: #5B7E35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.impactLeadText {
+  display: flex;
+  flex-direction: column;
+}
+
+.impactTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.impactSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #8B7E72;
+  margin-top: 2px;
+}
+
+.impactMetric {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.metricCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.metricInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricValue {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: #1C1A17;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.metricLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: #7A6F62;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.impactActionWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnSeeImpact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  background: #EAF0E5;
+  color: #38552E;
+  border-radius: 9999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.btnSeeImpact:hover {
+  background: #DCE7D6;
+}
+
+/* ============================================================
+   REAL IMPACT INTRO BANNER
+   ============================================================ */
+
+.realImpactIntro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 50px auto;
+  padding: 0 24px;
+}
+
+.realImpactBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #BF5B27;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.badgeLine {
+  width: 28px;
+  height: 1.5px;
+  background-color: #BF5B27;
+  opacity: 0.55;
+}
+
+.realImpactTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 38px;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+
+.realImpactSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #7A6F62;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   HOW SHAREBITE WORKS SECTION
+   ============================================================ */
+
+.howSection {
+  max-width: 1360px;
+  margin: 0 auto 90px auto;
+  padding: 0 32px;
+}
+
+.howHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.howTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: #1C1A17;
+  letter-spacing: -0.01em;
+}
+
+.howSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #7A6F62;
+  margin-top: 6px;
+}
+
+.howLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #BF5B27;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.howLink:hover {
+  color: #A64C1E;
+}
+
+.howGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.processCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #ECE3D6;
+  box-shadow: 0 6px 20px rgba(35, 25, 15, 0.04);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.processCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(35, 25, 15, 0.08);
+}
+
+.badgeIndex {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #A64C1E;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.processIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FDF3EA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #BF5B27;
+  flex-shrink: 0;
+}
+
+.processContent {
+  flex: 1;
+}
+
+.processCardTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1C1A17;
+  margin-bottom: 5px;
+}
+
+.processCardDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #7A6F62;
+}
+
+.processArrow {
+  color: #C4B9AA;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 1200px) {
+  .heroGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .heroTitle {
+    font-size: 46px;
+  }
+  .floatingCardsContainer {
+    left: -40px;
+    width: 250px;
+  }
+  .impactPill {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .howGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .heroRight {
+    justify-content: center;
+    min-height: auto;
+  }
+  .floatingCardsContainer {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 24px;
+  }
+  .impactPill {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 38px;
+  }
+  .trustRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .trustDivider {
+    display: none;
+  }
+  .floatingCardsContainer {
+    flex-direction: column;
+  }
+  .heroImageWrap {
+    width: 100%;
+    max-width: 360px;
+    height: 380px;
+  }
+  .craftTapeNote {
+    right: 0;
+  }
+  .impactPill {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .howGrid {
+    grid-template-columns: 1fr;
+  }
+}

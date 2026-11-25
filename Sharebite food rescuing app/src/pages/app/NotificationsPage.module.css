@@ -1,0 +1,9 @@
+﻿.list { display: flex; flex-direction: column; gap: var(--space-2); }
+.item { display: flex; gap: var(--space-4); padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); cursor: pointer; transition: background var(--transition-fast); }
+.item:hover { background: var(--color-bg-alt); }
+.unread { border-color: var(--color-primary-100, #f9e8d8); background: var(--color-primary-50, #fdf6f0); }
+.dot { width: 8px; height: 8px; border-radius: var(--radius-full); flex-shrink: 0; margin-top: 6px; }
+.content { flex: 1; display: flex; flex-direction: column; gap: var(--space-1); }
+.title { font-size: var(--text-sm); font-weight: var(--font-semibold); color: var(--color-text-primary); }
+.body { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.5; }
+.time { font-size: var(--text-xs); color: var(--color-text-disabled, #c4b49e); }

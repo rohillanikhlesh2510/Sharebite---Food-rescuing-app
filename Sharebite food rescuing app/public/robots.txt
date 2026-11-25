@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /donations
+Disallow: /requests
+Disallow: /notifications
+Disallow: /profile
+Disallow: /settings
+Disallow: /admin
+
+Sitemap: https://sharebite.org/sitemap.xml

@@ -1,0 +1,465 @@
+/* ============================================================
+   SHAREBITE — CHOOSE YOUR ROLE TO GET STARTED
+   Ultra-High-Fidelity Match to Reference Screenshot
+   Curved 3D Illuminated Podium, Atmosphere, Doodles & Botanical Accents
+   ============================================================ */
+
+:root {
+  --bg-ivory: #FAF6EE;
+  --orange-brand: #FF521C;
+  --forest-green: #163A2B;
+  --text-muted: #4B5563;
+  --border-subtle: #EFE8DA;
+}
+
+/* ─── PAGE CONTAINER ─── */
+.page {
+  min-height: 100vh;
+  background-color: var(--bg-ivory);
+  background-image: radial-gradient(ellipse at 50% 18%, #FCFAF5 0%, #FAF6EE 55%, #EFE8DA 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1F2937;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── BOTANICAL CORNER LEAVES ─── */
+.leafTL {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 82px;
+  max-width: 9vw;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.leafTR {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 96px;
+  max-width: 11vw;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+.leafBL {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 170px;
+  max-width: 15vw;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+/* ─── WATERMARK MONUMENTS BACKGROUND ─── */
+.watermarkLeft {
+  position: absolute;
+  top: 48%;
+  left: 20px;
+  transform: translateY(-28%);
+  width: 160px;
+  max-width: 14vw;
+  opacity: 0.85;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.watermarkRight {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-28%);
+  width: 150px;
+  max-width: 14vw;
+  opacity: 0.85;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+.watermarkImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── DOODLES ─── */
+.doodleHeartLeft {
+  position: absolute;
+  top: 215px;
+  left: 100px;
+  width: 130px;
+  max-width: 11vw;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.88;
+}
+
+.doodleNoteRight {
+  position: absolute;
+  top: 135px;
+  right: 95px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: rotate(8deg);
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+}
+
+.doodleNoteContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doodleNoteText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Kalam', cursive, sans-serif;
+  color: #6D634C;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.doodleUnderlines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin-top: 4px;
+  width: 100%;
+}
+
+.doodleLine1 {
+  width: 75%;
+  height: 1.8px;
+  background: #A29177;
+  border-radius: 999px;
+  transform: rotate(-1deg);
+}
+
+.doodleLine2 {
+  width: 55%;
+  height: 1.6px;
+  background: #B2A289;
+  border-radius: 999px;
+  transform: rotate(0.5deg);
+}
+
+.doodleNoteHeart {
+  width: 22px;
+  height: 22px;
+  margin-top: 28px;
+  margin-left: 2px;
+  color: #8A7B62;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.4));
+}
+
+.doodleImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── TOP NAVBAR (Clean Horizontal Header) ─── */
+.navbar {
+  position: relative;
+  z-index: 20;
+  padding: 18px 56px 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoLink {
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.logoIcon {
+  width: 38px;
+  height: 38px;
+  background: var(--orange-brand);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 82, 28, 0.28);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoName {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--orange-brand);
+  letter-spacing: -0.4px;
+  line-height: 1.05;
+}
+
+.logoTagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #786E63;
+  margin-top: 2px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.loginPrompt {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #4B5563;
+  font-weight: 500;
+}
+
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1F2937;
+  background: transparent;
+  border: 1.5px solid #C4B8A5;
+  padding: 6px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.loginBtn:hover {
+  background: #FFFFFF;
+  border-color: #8C7E6A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.loginBtn:focus-visible {
+  outline: 2px solid var(--orange-brand);
+  outline-offset: 2px;
+}
+
+/* ─── MAIN HERO HEADING ─── */
+.heroHeader {
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.welcomeBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--orange-brand);
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.welcomeLine {
+  width: 32px;
+  height: 1.2px;
+  background: #D8CEBE;
+}
+
+.mainTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 3.1vw, 2.9rem);
+  font-weight: 700;
+  color: var(--forest-green);
+  line-height: 1.13;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.6px;
+}
+
+.subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.94rem;
+  color: #4B5563;
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* ─── STAGE CONTAINER WITH 3D CURVED PODIUM ─── */
+.stageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 4px 20px 24px 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Curved illuminated podium floor stage */
+.stagePodium {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 180px;
+  border-radius: 50% / 45px;
+  background: radial-gradient(ellipse at 50% 25%, #FAF5EA 0%, #EFE7D8 50%, rgba(248, 244, 235, 0) 80%);
+  box-shadow: 0 25px 65px rgba(90, 70, 40, 0.08), inset 0 2px 8px rgba(255, 255, 255, 0.95);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── 4 ROLE CARDS GRID ─── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  align-items: flex-end;
+  perspective: 1400px;
+}
+
+/* ─── STAGE FOOTER NOTE ─── */
+.stageFooter {
+  text-align: center;
+  margin-top: 18px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.stageFooterText {
+  font-size: 0.78rem;
+  color: #6B7280;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+}
+
+.stageFooterLine {
+  width: 28px;
+  height: 1px;
+  background: #D5C8B8;
+}
+
+.stageHeart {
+  color: var(--orange-brand);
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
+@media (max-width: 1180px) {
+  .navbar {
+    padding: 18px 36px 0 36px;
+  }
+  .doodleHeartLeft {
+    left: 40px;
+    top: 230px;
+    width: 100px;
+  }
+  .doodleNoteRight {
+    right: 40px;
+    top: 150px;
+    width: 120px;
+  }
+  .watermarkLeft {
+    left: 10px;
+    width: 120px;
+  }
+  .watermarkRight {
+    right: 10px;
+    width: 120px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 680px;
+    gap: 20px;
+  }
+  .stagePodium {
+    display: none;
+  }
+  .doodleNoteRight,
+  .doodleHeartLeft {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    padding: 16px 20px 0 20px;
+  }
+  .loginPrompt {
+    display: none;
+  }
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 16px;
+  }
+  .mainTitle {
+    font-size: 2.1rem;
+  }
+  .watermarkLeft,
+  .watermarkRight {
+    display: none;
+  }
+  .leafTL,
+  .leafTR,
+  .leafBL {
+    max-width: 16vw;
+  }
+  .stageContainer {
+    padding: 8px 16px 28px 16px;
+  }
+}
+
+/* ─── ACCESSIBILITY: PREFERS REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  .loginBtn {
+    transition: none !important;
+  }
+}
